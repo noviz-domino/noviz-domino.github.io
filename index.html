@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>김민석 · AI Agent Engineer</title>
-<meta name="description" content="김민석 포트폴리오 — LLM을 실제 서비스에 안전하게 붙이는 AI 에이전트 엔지니어. LangGraph 에이전트, RAG, n8n 자동화, 웹·앱 프로젝트.">
+<title>김민석 · AI Agent Engineer 포트폴리오</title>
+<meta name="description" content="AI 에이전트 엔지니어 김민석의 포트폴리오. LangGraph 에이전트, RAG, n8n 자동화, 웹·앱 프로젝트와 학력·자격 정보.">
 
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="favicon.png">
@@ -12,22 +12,19 @@
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="김민석 Portfolio">
-<meta property="og:title" content="김민석 · AI Agent Engineer">
-<meta property="og:description" content="그럴듯한 답보다 틀리지 않는 답을. LLM이 할 일과 코드·사람이 할 일을 나누는 AI 에이전트 엔지니어의 포트폴리오.">
-<meta property="og:image" content="https://noviz-domino.github.io/og-image.png?v=2">
+<meta property="og:title" content="김민석 · AI Agent Engineer 포트폴리오">
+<meta property="og:description" content="LLM 출력 검증과 사람 승인 단계를 설계해 실제 서비스에 붙이는 AI 에이전트 엔지니어. 프로젝트·기술·학력 한눈에 보기.">
+<meta property="og:image" content="https://noviz-domino.github.io/og-image.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://noviz-domino.github.io/">
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="김민석 · AI Agent Engineer">
-<meta name="twitter:description" content="그럴듯한 답보다 틀리지 않는 답을. LLM이 할 일과 코드·사람이 할 일을 나누는 AI 에이전트 엔지니어의 포트폴리오.">
-<meta name="twitter:image" content="https://noviz-domino.github.io/og-image.png?v=2">
+<meta name="twitter:title" content="김민석 · AI Agent Engineer 포트폴리오">
+<meta name="twitter:description" content="LLM 출력 검증과 사람 승인 단계를 설계해 실제 서비스에 붙이는 AI 에이전트 엔지니어. 프로젝트·기술·학력 한눈에 보기.">
+<meta name="twitter:image" content="https://noviz-domino.github.io/og-image.png?v=3">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap">
 
 <script>
   (function () {
@@ -40,850 +37,465 @@
 
 <style>
   *, *::before, *::after { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
-  body, h1, h2, h3, h4, p, ul, ol, li, figure, dl, dd { margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body, h1, h2, h3, h4, p, ul, ol, li, figure, dl, dd, table { margin: 0; padding: 0; }
   ul, ol { list-style: none; }
   img { display: block; max-width: 100%; height: auto; }
   a { color: inherit; }
   button { font: inherit; color: inherit; }
 
   :root {
-    --bg: #f6f5f0;
-    --surface: #ffffff;
-    --surface-2: #efede6;
-    --text: #1b1c1f;
-    --text-soft: #4a4d55;
-    --muted: #7e818a;
-    --border: #e2dfd6;
-    --border-str: #cfcbc0;
+    --bg: #fbfbfa;
+    --panel: #ffffff;
+    --soft: #f3f4f2;
+    --text: #1f2328;
+    --text-2: #474d55;
+    --muted: #7b818a;
+    --line: #e5e6e3;
+    --line-2: #d3d5d1;
     --accent: #0f766e;
-    --accent-ink: #0b5a54;
-    --accent-bg: #e3f1ee;
-
-    --k-llm: #7c4dcc;   --k-llm-bg: #f0e9fb;
-    --k-code: #0f766e;  --k-code-bg: #e3f1ee;
-    --k-human: #c2570c; --k-human-bg: #fcebdc;
-
+    --accent-2: #0b5a54;
+    --accent-bg: #e6f2f0;
+    --warn: #b45309;
+    --warn-bg: #fdf1e3;
     --font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI",
             "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
-    --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
-
-    --wrap: 70rem;
-    --gutter: clamp(1rem, 4vw, 2.5rem);
-    --section: clamp(4rem, 9vw, 7rem);
-    --radius: 14px;
   }
-
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #0f1214; --surface: #161a1d; --surface-2: #1c2125;
-      --text: #e8eaec; --text-soft: #b4b9bf; --muted: #868c93;
-      --border: #262c31; --border-str: #353c42;
-      --accent: #5ec4b6; --accent-ink: #8ad8cc; --accent-bg: #15302c;
-      --k-llm: #b99af0; --k-llm-bg: #271f38;
-      --k-code: #5ec4b6; --k-code-bg: #15302c;
-      --k-human: #f0a060; --k-human-bg: #36241a;
+      --bg: #111315; --panel: #171a1d; --soft: #1d2124;
+      --text: #e6e8ea; --text-2: #b7bcc2; --muted: #878d94;
+      --line: #262a2e; --line-2: #33383d;
+      --accent: #5ec4b6; --accent-2: #8ad8cc; --accent-bg: #16302c;
+      --warn: #f0a060; --warn-bg: #33241a;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #0f1214; --surface: #161a1d; --surface-2: #1c2125;
-    --text: #e8eaec; --text-soft: #b4b9bf; --muted: #868c93;
-    --border: #262c31; --border-str: #353c42;
-    --accent: #5ec4b6; --accent-ink: #8ad8cc; --accent-bg: #15302c;
-    --k-llm: #b99af0; --k-llm-bg: #271f38;
-    --k-code: #5ec4b6; --k-code-bg: #15302c;
-    --k-human: #f0a060; --k-human-bg: #36241a;
+    --bg: #111315; --panel: #171a1d; --soft: #1d2124;
+    --text: #e6e8ea; --text-2: #b7bcc2; --muted: #878d94;
+    --line: #262a2e; --line-2: #33383d;
+    --accent: #5ec4b6; --accent-2: #8ad8cc; --accent-bg: #16302c;
+    --warn: #f0a060; --warn-bg: #33241a;
   }
 
   body {
     background: var(--bg); color: var(--text);
-    font-family: var(--font);
-    font-size: clamp(0.97rem, 0.93rem + 0.18vw, 1.06rem);
-    line-height: 1.75; letter-spacing: -0.006em;
-    word-break: keep-all; overflow-wrap: break-word;
+    font-family: var(--font); font-size: 15.5px; line-height: 1.7;
+    letter-spacing: -0.005em; word-break: keep-all; overflow-wrap: break-word;
     -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter); }
-  .mono { font-family: var(--mono); }
   strong { font-weight: 650; color: var(--text); }
+  code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 0.88em; padding: 0.05em 0.3em; border-radius: 4px; background: var(--soft); }
 
-  /* nav */
-  .nav {
-    position: sticky; top: 0; z-index: 20;
-    background: color-mix(in srgb, var(--bg) 86%, transparent);
-    backdrop-filter: saturate(1.4) blur(10px); -webkit-backdrop-filter: saturate(1.4) blur(10px);
-    border-bottom: 1px solid var(--border);
+  .layout { max-width: 76rem; margin: 0 auto; padding: 0 1rem; }
+  @media (min-width: 64rem) {
+    .layout { display: grid; grid-template-columns: 19rem minmax(0, 1fr); gap: 4rem; padding: 0 2.5rem; }
   }
-  .nav .wrap { display: flex; align-items: center; gap: 1rem; height: 3.75rem; }
-  .brand { font-weight: 700; letter-spacing: -0.02em; text-decoration: none; white-space: nowrap; }
-  .brand span { color: var(--accent); }
-  .nav-links { display: flex; gap: 0.25rem; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
-  .nav-links::-webkit-scrollbar { display: none; }
-  .nav-links a {
-    padding: 0.35rem 0.65rem; border-radius: 8px; font-size: 0.9rem; color: var(--text-soft);
-    text-decoration: none; white-space: nowrap;
-  }
-  .nav-links a:hover, .nav-links a.on { color: var(--text); background: var(--surface-2); }
-  .icon-btn {
-    flex: none; width: 2.25rem; height: 2.25rem; display: grid; place-items: center;
-    border: 1px solid var(--border); border-radius: 999px; background: var(--surface); cursor: pointer;
-  }
-  .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
-  .icon-btn svg { width: 1.05rem; height: 1.05rem; }
-  @media (max-width: 40rem) { .nav-links { display: none; } .nav .icon-btn { margin-left: auto; } }
 
-  /* hero */
-  .hero { padding: clamp(3.5rem, 9vw, 6.5rem) 0 clamp(2.5rem, 5vw, 3.5rem); }
-  .hero-grid { display: grid; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
-  @media (min-width: 52rem) { .hero-grid { grid-template-columns: 1fr 15rem; } }
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    font-size: 0.82rem; font-weight: 600; color: var(--accent-ink);
-    padding: 0.3rem 0.75rem; border-radius: 999px; background: var(--accent-bg);
+  .profile { padding: 2.5rem 0 1.5rem; }
+  @media (min-width: 64rem) {
+    .profile { position: sticky; top: 0; height: 100vh; overflow-y: auto; scrollbar-width: none; padding: 2.25rem 0 1.5rem; display: flex; flex-direction: column; }
+    .profile::-webkit-scrollbar { display: none; }
   }
-  .eyebrow::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
-  .hero h1 {
-    margin-top: 1.25rem;
-    font-size: clamp(2.3rem, 1.3rem + 4.6vw, 4.4rem);
-    line-height: 1.12; letter-spacing: -0.045em; font-weight: 750;
+  .id { display: flex; gap: 1rem; align-items: center; }
+  @media (min-width: 64rem) { .id { flex-direction: column; align-items: flex-start; } }
+  .photo { width: 88px; height: 88px; border-radius: 16px; object-fit: cover; border: 1px solid var(--line); flex: none; }
+  @media (min-width: 64rem) { .photo { width: 84px; height: 84px; } }
+  .name { font-size: 1.9rem; font-weight: 750; letter-spacing: -0.03em; line-height: 1.2; }
+  .role { margin-top: 0.2rem; font-size: 1rem; font-weight: 600; color: var(--accent); }
+  .summary { margin-top: 0.8rem; font-size: 0.95rem; color: var(--text-2); line-height: 1.65; }
+
+  .facts { margin-top: 1rem; display: grid; gap: 0.35rem; font-size: 0.88rem; }
+  .facts div { display: grid; grid-template-columns: 4.5rem 1fr; gap: 0.5rem; }
+  .facts dt { color: var(--muted); }
+  .facts dd a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--line-2); }
+  .facts dd a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+
+  .toc { display: none; }
+  @media (min-width: 64rem) {
+    .toc { display: grid; gap: 0; margin-top: 1.1rem; font-size: 0.9rem; }
+    .toc a { display: flex; align-items: center; gap: 0.6rem; padding: 0.2rem 0; color: var(--muted); text-decoration: none; }
+    .toc a::before { content: ""; width: 1.25rem; height: 1px; background: var(--line-2); transition: width .15s, background .15s; }
+    .toc a:hover, .toc a.on { color: var(--text); }
+    .toc a.on::before { width: 2.5rem; background: var(--text); }
   }
-  .hero h1 em { font-style: normal; color: var(--accent); }
-  .hero .who { margin-top: 1.25rem; font-size: clamp(1.05rem, 1rem + 0.35vw, 1.25rem); font-weight: 600; letter-spacing: -0.02em; }
-  .hero .who span { color: var(--muted); font-weight: 500; }
-  .hero .lead { margin-top: 0.9rem; max-width: 44rem; color: var(--text-soft); font-size: clamp(1rem, 0.96rem + 0.2vw, 1.1rem); }
-  .contact { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.75rem; }
-  .pill {
-    display: inline-flex; align-items: center; gap: 0.45rem;
-    padding: 0.45rem 0.85rem; border-radius: 999px; font-size: 0.88rem;
-    border: 1px solid var(--border); background: var(--surface); color: var(--text-soft); text-decoration: none;
-    transition: border-color .15s, color .15s;
+  .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  @media (min-width: 64rem) { .actions { margin-top: auto; padding-top: 1rem; } }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.4rem; cursor: pointer;
+    padding: 0.5rem 0.85rem; border-radius: 8px; font-size: 0.86rem; font-weight: 600; text-decoration: none;
+    border: 1px solid var(--line-2); background: var(--panel); color: var(--text);
   }
-  a.pill:hover { border-color: var(--accent); color: var(--accent); }
-  .pill.primary { background: var(--text); border-color: var(--text); color: var(--bg); }
-  .pill.primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
-  .pill svg { width: 0.95rem; height: 0.95rem; }
-  .avatar-card { justify-self: start; position: relative; width: min(15rem, 60vw); }
-  @media (min-width: 52rem) { .avatar-card { justify-self: end; } }
-  .avatar-card img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 22px; border: 1px solid var(--border); background: var(--surface-2); }
-  .avatar-card .tag {
-    position: absolute; left: -0.75rem; bottom: 1rem;
-    font-size: 0.78rem; padding: 0.35rem 0.7rem; border-radius: 10px;
-    background: var(--surface); border: 1px solid var(--border); box-shadow: 0 6px 20px rgb(0 0 0 / .08);
-  }
-  .avatar-card .tag b { color: var(--accent); }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .btn.primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .btn svg { width: 0.95rem; height: 0.95rem; }
+  .updated { margin-top: 0.9rem; font-size: 0.78rem; color: var(--muted); }
 
-  /* metrics */
-  .metrics {
-    display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-    border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); overflow: hidden;
-  }
-  @media (min-width: 52rem) { .metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-  .metric { padding: 1.4rem 1.3rem; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .metric:nth-child(2n) { border-right: 0; }
-  @media (min-width: 52rem) {
-    .metric { border-bottom: 0; }
-    .metric:nth-child(2n) { border-right: 1px solid var(--border); }
-    .metric:last-child { border-right: 0; }
-  }
-  @media (max-width: 51.99rem) { .metric:nth-last-child(-n+2) { border-bottom: 0; } }
-  .metric .num { font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.1rem); font-weight: 750; letter-spacing: -0.04em; line-height: 1.2; font-variant-numeric: tabular-nums; }
-  .metric .num small { font-size: 0.55em; font-weight: 600; color: var(--muted); letter-spacing: -0.01em; }
-  .metric .what { margin-top: 0.35rem; font-size: 0.86rem; color: var(--text-soft); line-height: 1.5; }
-  .metric .src { margin-top: 0.5rem; font-size: 0.75rem; color: var(--muted); font-family: var(--mono); }
+  main { padding: 0.5rem 0 4rem; min-width: 0; }
+  @media (min-width: 64rem) { main { padding: 3.5rem 0 5rem; } }
+  section { padding: 2.25rem 0; border-top: 1px solid var(--line); scroll-margin-top: 1rem; }
+  section:first-child { border-top: 0; padding-top: 0.5rem; }
+  h2 { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 1.1rem; }
+  h2 span { color: var(--text); letter-spacing: -0.01em; font-size: 1.15rem; margin-right: 0.5rem; }
 
-  /* sections */
-  section.block { padding: var(--section) 0 0; }
-  .sec-head { display: grid; gap: 0.6rem; margin-bottom: clamp(1.75rem, 4vw, 2.75rem); max-width: 46rem; }
-  .sec-kicker { font-family: var(--mono); font-size: 0.78rem; color: var(--accent); letter-spacing: 0.04em; }
-  .sec-head h2 { font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.3rem); line-height: 1.25; letter-spacing: -0.035em; font-weight: 720; }
-  .sec-head p { color: var(--text-soft); }
+  .about p { color: var(--text-2); max-width: 44rem; }
+  .about p + p { margin-top: 0.75rem; }
 
-  /* principles */
-  .principles { display: grid; gap: 1rem; }
-  @media (min-width: 48rem) { .principles { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  .principle { padding: 1.5rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); }
-  .principle .n { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); }
-  .principle h3 { margin-top: 0.75rem; font-size: 1.12rem; letter-spacing: -0.025em; }
-  .principle p { margin-top: 0.5rem; font-size: 0.93rem; color: var(--text-soft); line-height: 1.7; }
-  .principle .seen { margin-top: 1rem; padding-top: 0.9rem; border-top: 1px dashed var(--border-str); font-size: 0.8rem; color: var(--muted); }
+  .hl { display: grid; gap: 0.6rem; }
+  @media (min-width: 40rem) { .hl { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .hl li { padding: 1rem 1.1rem; border-radius: 10px; background: var(--panel); border: 1px solid var(--line); }
+  .hl .num { font-size: 1.35rem; font-weight: 750; letter-spacing: -0.03em; line-height: 1.25; font-variant-numeric: tabular-nums; }
+  .hl .num small { font-size: 0.7em; color: var(--muted); font-weight: 600; }
+  .hl p { margin-top: 0.2rem; font-size: 0.88rem; color: var(--text-2); line-height: 1.55; }
+  .hl .src { margin-top: 0.35rem; font-size: 0.76rem; color: var(--muted); }
 
-  /* legend + flow */
-  .legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; font-size: 0.83rem; color: var(--text-soft); margin-bottom: 1.25rem; }
-  .legend .k { display: inline-flex; align-items: center; gap: 0.4rem; }
-  .dot { width: 10px; height: 10px; border-radius: 3px; flex: none; }
-  .dot.llm { background: var(--k-llm); } .dot.code { background: var(--k-code); } .dot.human { background: var(--k-human); }
-
-  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-top: 1.1rem; }
-  .step {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-size: 0.8rem; line-height: 1.3; padding: 0.38rem 0.6rem; border-radius: 8px;
-    border: 1px solid var(--border); background: var(--surface-2); color: var(--text-soft);
-  }
-  .step.llm { background: var(--k-llm-bg); color: var(--k-llm); border-color: color-mix(in srgb, var(--k-llm) 30%, transparent); font-weight: 600; }
-  .step.code { background: var(--k-code-bg); color: var(--k-code); border-color: color-mix(in srgb, var(--k-code) 30%, transparent); }
-  .step.human { background: var(--k-human-bg); color: var(--k-human); border-color: color-mix(in srgb, var(--k-human) 30%, transparent); font-weight: 600; }
-  .arrow { color: var(--border-str); font-size: 0.8rem; }
-
-  /* case studies */
-  .case {
-    display: grid; gap: clamp(1.25rem, 3vw, 2.5rem);
-    padding: clamp(1.4rem, 3vw, 2.25rem); border-radius: calc(var(--radius) + 4px);
-    background: var(--surface); border: 1px solid var(--border);
-  }
-  .case + .case { margin-top: 1.25rem; }
-  @media (min-width: 60rem) { .case { grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); } .case.solo { grid-template-columns: 1fr; } }
-  .case-top { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
-  .idx { font-family: var(--mono); font-size: 0.78rem; color: var(--muted); }
-  .status { font-size: 0.72rem; font-weight: 600; padding: 0.15rem 0.5rem; border-radius: 6px; background: var(--surface-2); color: var(--text-soft); }
-  .status.live { background: var(--accent-bg); color: var(--accent-ink); }
-  .status.wip { background: var(--k-human-bg); color: var(--k-human); }
-  .case h3 { margin-top: 0.6rem; font-size: clamp(1.25rem, 1.05rem + 0.8vw, 1.6rem); letter-spacing: -0.035em; line-height: 1.3; }
-  .case .one { margin-top: 0.35rem; color: var(--text-soft); font-size: 0.97rem; }
-  .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.9rem; }
-  .tag-chip { font-family: var(--mono); font-size: 0.74rem; padding: 0.18rem 0.5rem; border-radius: 6px; border: 1px solid var(--border); color: var(--text-soft); }
-
-  .pa { margin-top: 1.25rem; display: grid; gap: 0.9rem; }
-  .pa div { padding-left: 0.9rem; border-left: 2px solid var(--border); }
-  .pa dt { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; color: var(--muted); }
-  .pa dd { margin-top: 0.15rem; font-size: 0.93rem; color: var(--text-soft); line-height: 1.72; }
-  .pa div.fail { border-left-color: var(--k-human); }
-  .pa div.fail dt { color: var(--k-human); }
-
-  .results { display: grid; gap: 0.6rem; grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr)); }
-  .result { padding: 1rem; border-radius: 12px; background: var(--surface-2); }
-  .result .num { font-size: 1.55rem; font-weight: 750; letter-spacing: -0.04em; line-height: 1.2; font-variant-numeric: tabular-nums; }
-  .result .num .from { font-size: 0.62em; color: var(--muted); font-weight: 600; }
-  .result .lbl { margin-top: 0.25rem; font-size: 0.8rem; color: var(--text-soft); line-height: 1.45; }
-  .shots { display: grid; gap: 0.6rem; margin-top: 0.75rem; }
-  .shots.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .shots img { width: 100%; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-2); }
-  .shots.phone img { aspect-ratio: 9 / 18; object-fit: cover; object-position: top; }
-  .shots.web img { aspect-ratio: 4 / 5; object-fit: cover; object-position: top; }
-  .shot-one { margin-top: 0.75rem; max-width: 22rem; }
-  .shot-one img { border-radius: 12px; border: 1px solid var(--border); }
-  .caption { margin-top: 0.5rem; font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
-  .links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.1rem; margin-top: 1.25rem; font-size: 0.88rem; }
-  .links a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  .proj { display: grid; gap: 0.25rem 1.5rem; padding: 1.5rem 0; border-top: 1px dashed var(--line); }
+  .proj:first-of-type { border-top: 0; padding-top: 0.25rem; }
+  @media (min-width: 48rem) { .proj { grid-template-columns: 7.5rem minmax(0, 1fr); } }
+  .when { font-size: 0.8rem; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 0.2rem; white-space: nowrap; }
+  .proj h3 { font-size: 1.08rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.4; }
+  .proj h3 .kr { font-weight: 500; color: var(--text-2); }
+  .meta { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.45rem; }
+  .badge { font-size: 0.74rem; font-weight: 600; padding: 0.12rem 0.5rem; border-radius: 5px; background: var(--soft); color: var(--text-2); }
+  .badge.ok { background: var(--accent-bg); color: var(--accent-2); }
+  .badge.wip { background: var(--warn-bg); color: var(--warn); }
+  .proj .desc { margin-top: 0.6rem; color: var(--text-2); font-size: 0.95rem; }
+  .points { margin-top: 0.6rem; display: grid; gap: 0.3rem; }
+  .points li { position: relative; padding-left: 1rem; font-size: 0.92rem; color: var(--text-2); line-height: 1.65; }
+  .points li::before { content: ""; position: absolute; left: 0.1rem; top: 0.72em; width: 5px; height: 5px; border-radius: 50%; background: var(--line-2); }
+  .points .label { font-weight: 650; color: var(--text); margin-right: 0.3rem; }
+  .points .label.fail { color: var(--warn); }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.75rem; }
+  .tag { font-size: 0.76rem; padding: 0.12rem 0.5rem; border-radius: 999px; border: 1px solid var(--line-2); color: var(--text-2); }
+  .links { display: flex; flex-wrap: wrap; gap: 0.3rem 1rem; margin-top: 0.7rem; font-size: 0.86rem; font-weight: 600; }
+  .links a { color: var(--accent); text-decoration: none; }
   .links a:hover { text-decoration: underline; text-underline-offset: 3px; }
   .links a::after { content: " ↗"; font-weight: 400; }
+  .thumbs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; margin-top: 0.9rem; max-width: 30rem; }
+  .thumbs img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; border-radius: 8px; border: 1px solid var(--line); background: var(--soft); }
+  .thumbs.one { grid-template-columns: 1fr; max-width: 17rem; }
+  .thumbs.one img { aspect-ratio: auto; }
 
-  /* all projects */
-  .filters { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.25rem; }
-  .filter {
-    padding: 0.4rem 0.85rem; border-radius: 999px; font-size: 0.86rem; cursor: pointer;
-    border: 1px solid var(--border); background: var(--surface); color: var(--text-soft);
+  .others { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .others th { text-align: left; font-size: 0.76rem; font-weight: 600; color: var(--muted); padding: 0 0.75rem 0.5rem 0; border-bottom: 1px solid var(--line-2); }
+  .others td { padding: 0.75rem 0.75rem 0.75rem 0; border-bottom: 1px solid var(--line); vertical-align: top; color: var(--text-2); }
+  .others td:first-child { white-space: nowrap; color: var(--muted); font-size: 0.8rem; font-variant-numeric: tabular-nums; padding-top: 0.85rem; }
+  .others td b { display: block; color: var(--text); font-weight: 650; }
+  .others td .s { display: block; font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; }
+  .others td a { color: var(--accent); font-weight: 600; text-decoration: none; white-space: nowrap; }
+  .others td a:hover { text-decoration: underline; }
+  @media (max-width: 40rem) {
+    .others thead { display: none; }
+    .others tr { display: grid; grid-template-columns: 1fr auto; gap: 0.1rem 0.75rem; padding: 0.8rem 0; border-bottom: 1px solid var(--line); }
+    .others td { border: 0; padding: 0; }
+    .others td:first-child { grid-column: 1 / -1; padding: 0; }
+    .others td.stack { grid-column: 1 / -1; font-size: 0.8rem; color: var(--muted); order: 3; }
   }
-  .filter:hover { border-color: var(--border-str); color: var(--text); }
-  .filter[aria-pressed="true"] { background: var(--text); border-color: var(--text); color: var(--bg); }
-  .filter .c { font-family: var(--mono); font-size: 0.75rem; opacity: 0.65; margin-left: 0.2rem; }
-  .grid { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 19rem), 1fr)); }
-  .card {
-    display: flex; flex-direction: column; padding: 1.2rem 1.25rem; border-radius: var(--radius);
-    background: var(--surface); border: 1px solid var(--border); transition: border-color .15s, transform .15s;
-  }
-  .card:hover { border-color: var(--border-str); transform: translateY(-2px); }
-  .card[hidden] { display: none; }
-  .card .meta { display: flex; justify-content: space-between; gap: 0.5rem; font-size: 0.75rem; color: var(--muted); }
-  .card .meta .cat { font-weight: 600; }
-  .card h4 { margin-top: 0.55rem; font-size: 1.02rem; letter-spacing: -0.02em; line-height: 1.4; }
-  .card h4 small { display: block; font-family: var(--mono); font-size: 0.72rem; font-weight: 400; color: var(--muted); letter-spacing: 0; margin-top: 0.15rem; }
-  .card p { margin-top: 0.5rem; font-size: 0.88rem; color: var(--text-soft); line-height: 1.65; flex: 1; }
-  .card .hl { margin-top: 0.75rem; font-size: 0.8rem; padding: 0.5rem 0.65rem; border-radius: 8px; background: var(--surface-2); color: var(--text-soft); line-height: 1.5; }
-  .card .hl b { color: var(--text); }
-  .card .links { margin-top: 0.9rem; font-size: 0.82rem; }
 
-  /* stack */
-  .stack-grid { display: grid; gap: 0.9rem; }
-  @media (min-width: 48rem) { .stack-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  .stack-group { padding: 1.2rem 1.25rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); }
-  .stack-group h3 { font-size: 0.85rem; font-weight: 700; color: var(--muted); letter-spacing: 0.02em; }
-  .chips { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.7rem; }
-  .chip { font-size: 0.84rem; padding: 0.25rem 0.6rem; border-radius: 7px; background: var(--surface-2); color: var(--text); }
-  .chip.ghost { background: transparent; border: 1px dashed var(--border-str); color: var(--muted); }
-  .stack-note { margin-top: 0.9rem; font-size: 0.8rem; color: var(--muted); }
+  .skills { display: grid; gap: 0; }
+  .skills div { display: grid; gap: 0.35rem 1rem; padding: 0.7rem 0; border-bottom: 1px solid var(--line); }
+  .skills div:first-child { padding-top: 0; }
+  @media (min-width: 40rem) { .skills div { grid-template-columns: 8.5rem 1fr; } }
+  .skills dt { font-size: 0.85rem; font-weight: 650; }
+  .skills dd { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+  .chip { font-size: 0.82rem; padding: 0.12rem 0.55rem; border-radius: 6px; background: var(--soft); color: var(--text); }
+  .chip.ghost { background: transparent; border: 1px dashed var(--line-2); color: var(--muted); }
+  .note { margin-top: 0.7rem; font-size: 0.8rem; color: var(--muted); }
 
-  /* track */
-  .track { display: grid; gap: 0; border-left: 2px solid var(--border); margin-left: 0.4rem; }
-  .mod { position: relative; padding: 0 0 1.5rem 1.5rem; }
-  .mod:last-child { padding-bottom: 0; }
-  .mod::before {
-    content: ""; position: absolute; left: -7px; top: 0.45rem; width: 12px; height: 12px; border-radius: 50%;
-    background: var(--bg); border: 2px solid var(--border-str);
-  }
-  .mod.done::before { background: var(--accent); border-color: var(--accent); }
-  .mod .m { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
-  .mod h4 { font-size: 1rem; letter-spacing: -0.02em; margin-top: 0.1rem; }
-  .mod p { font-size: 0.86rem; color: var(--text-soft); margin-top: 0.2rem; }
-  .mod .out { margin-top: 0.45rem; display: flex; flex-wrap: wrap; gap: 0.3rem; }
-  .mod .out span { font-family: var(--mono); font-size: 0.72rem; padding: 0.12rem 0.45rem; border-radius: 5px; background: var(--accent-bg); color: var(--accent-ink); }
-  .mod .out span.soon { background: var(--surface-2); color: var(--muted); }
-  .two { display: grid; gap: clamp(1.5rem, 4vw, 3rem); }
-  @media (min-width: 56rem) { .two { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); } }
-  .track-intro { font-size: 0.93rem; color: var(--text-soft); }
-  .track-intro + .track-intro { margin-top: 0.8rem; }
-  .side-note { margin-top: 1.25rem; padding: 1rem 1.1rem; border-radius: 12px; background: var(--surface); border: 1px solid var(--border); font-size: 0.86rem; color: var(--text-soft); }
+  .tl { display: grid; gap: 1.1rem; }
+  .tl li { display: grid; gap: 0.1rem 1.5rem; }
+  @media (min-width: 48rem) { .tl li { grid-template-columns: 7.5rem minmax(0, 1fr); } }
+  .tl h3 { font-size: 1rem; font-weight: 700; letter-spacing: -0.015em; }
+  .tl .sub { font-size: 0.88rem; color: var(--text-2); }
+  .tl .mods { margin-top: 0.5rem; display: grid; gap: 0.2rem; font-size: 0.85rem; color: var(--text-2); }
+  .tl .mods span { color: var(--muted); display: inline-block; width: 5.5rem; }
+  .tl .mods i { font-style: normal; color: var(--muted); }
 
-  /* background */
-  .bg-grid { display: grid; gap: 0.9rem; }
-  @media (min-width: 48rem) { .bg-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
-  .bg-card { padding: 1.25rem; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--border); }
-  .bg-card h3 { font-size: 0.85rem; font-weight: 700; color: var(--muted); }
-  .bg-card ul { margin-top: 0.8rem; display: grid; gap: 0.85rem; }
-  .bg-card li { display: grid; gap: 0.1rem; }
-  .bg-card .when { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); }
-  .bg-card .what { font-size: 0.93rem; line-height: 1.5; }
-  .bg-card .what small { display: block; font-size: 0.8rem; color: var(--muted); }
-  .about-more { margin-top: 1.25rem; display: grid; gap: 0.8rem; max-width: 48rem; color: var(--text-soft); font-size: 0.95rem; }
+  .contact-box { margin-top: 1.5rem; padding: 1.25rem 1.4rem; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); display: grid; gap: 0.9rem; }
+  @media (min-width: 48rem) { .contact-box { grid-template-columns: 1fr auto; align-items: center; } }
+  .contact-box p { color: var(--text-2); font-size: 0.93rem; }
 
-  /* contact */
-  .cta {
-    margin-top: var(--section); padding: clamp(2rem, 5vw, 3.5rem);
-    border-radius: calc(var(--radius) + 6px); background: var(--text); color: var(--bg);
-    display: grid; gap: 1.25rem;
-  }
-  @media (min-width: 52rem) { .cta { grid-template-columns: 1fr auto; align-items: end; } }
-  .cta h2 { font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.2rem); letter-spacing: -0.035em; line-height: 1.3; }
-  .cta p { margin-top: 0.5rem; opacity: 0.75; font-size: 0.95rem; }
-  .cta .contact { margin-top: 0; }
-  .cta .pill { background: transparent; border-color: color-mix(in srgb, var(--bg) 30%, transparent); color: var(--bg); }
-  .cta .pill:hover { border-color: var(--bg); color: var(--bg); }
-  .cta .pill.primary { background: var(--bg); color: var(--text); border-color: var(--bg); }
-  footer { padding: 2rem 0 3rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; font-size: 0.8rem; color: var(--muted); }
-  footer a { color: var(--text-soft); }
+  .theme-btn { position: fixed; right: 1rem; bottom: 1rem; z-index: 5; width: 2.5rem; height: 2.5rem; border-radius: 999px; display: grid; place-items: center; cursor: pointer; background: var(--panel); border: 1px solid var(--line-2); }
+  .theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .theme-btn svg { width: 1rem; height: 1rem; }
 
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 
   @media print {
-    .nav, .filters, .icon-btn { display: none !important; }
-    :root { --bg: #fff; --surface: #fff; --surface-2: #f5f5f5; --section: 1.5rem; }
-    body { font-size: 10pt; }
-    .case, .card, .principle { break-inside: avoid; }
-    .cta { background: #fff; color: #000; border: 1px solid #ccc; }
-    .cta .pill { color: #000; }
+    :root { --bg: #fff; --panel: #fff; --soft: #f4f4f4; --text: #000; --text-2: #222; --muted: #555; --line: #ddd; --line-2: #bbb; --accent: #0b5a54; }
+    @page { margin: 14mm 12mm; }
+    body { font-size: 10pt; line-height: 1.5; }
+    .layout { display: block; padding: 0; max-width: none; }
+    .profile { position: static; height: auto; padding: 0 0 0.8rem; border-bottom: 1px solid #ccc; }
+    .id { flex-direction: row; align-items: center; }
+    .photo { width: 72px; height: 72px; }
+    .facts { grid-template-columns: repeat(2, 1fr); column-gap: 1.5rem; }
+    .toc, .actions, .theme-btn, .thumbs, .contact-box { display: none !important; }
+    main { padding: 0; }
+    section { padding: 0.9rem 0; }
+    .proj, .tl li, .hl li, .others tr { break-inside: avoid; }
+    .links a::after { content: ""; }
   }
 </style>
 </head>
 <body>
 
-<nav class="nav" aria-label="주요 메뉴">
-  <div class="wrap">
-    <a class="brand" href="#top">김민석<span>.</span></a>
-    <div class="nav-links">
-      <a href="#principles">원칙</a>
-      <a href="#work">대표 사례</a>
-      <a href="#all">전체 프로젝트</a>
-      <a href="#stack">기술</a>
-      <a href="#track">과정</a>
-      <a href="#background">이력</a>
-      <a href="#contact">연락</a>
-    </div>
-    <button class="icon-btn" type="button" id="themeBtn" aria-label="라이트/다크 모드 전환" title="라이트/다크 모드 전환">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
-    </button>
-  </div>
-</nav>
+<div class="layout">
 
-<main id="top">
-<div class="wrap">
-
-  <header class="hero">
-    <div class="hero-grid">
+  <aside class="profile" aria-label="인적사항">
+    <div class="id">
+      <img class="photo" src="profile.jpg" alt="김민석 프로필 사진" width="480" height="480">
       <div>
-        <span class="eyebrow">AI Agent Engineer · 삼성 멀티캠퍼스 AI 에이전트 트랙 수강 중</span>
-        <h1>그럴듯한 답보다<br><em>틀리지 않는 답</em>을.</h1>
-        <p class="who">김민석 <span>· LLM을 실제 서비스에 안전하게 붙이는 일을 합니다</span></p>
-        <p class="lead">
-          돈이 움직이고 고객에게 답장이 나가는 곳에서는 LLM이 지어낸 숫자 하나가 사고가 됩니다.
-          그래서 <strong>LLM이 할 일과 코드·사람이 할 일을 나누고</strong>, 그 경계가 지켜지는지 평가셋과 시나리오로 확인합니다.
-        </p>
-        <div class="contact">
-          <a class="pill primary" href="mailto:noviz2025@gmail.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-            noviz2025@gmail.com
-          </a>
-          <a class="pill" href="https://github.com/noviz-domino" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a class="pill" href="https://github.com/noviz-domino/portfolio" target="_blank" rel="noopener noreferrer">코드 모음 저장소</a>
-          <a class="pill" href="https://www.linkedin.com/in/kim-min-seok-domino/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <h1 class="name">김민석</h1>
+        <p class="role">AI Agent Engineer · 신입</p>
+      </div>
+    </div>
+    <p class="summary">LLM 응용 서비스를 만듭니다. 출력 검증과 사람 승인 단계를 설계해 <strong>LLM을 실제 서비스에 안전하게 붙이는 일</strong>에 집중하고 있습니다.</p>
+
+    <dl class="facts">
+      <div><dt>이메일</dt><dd><a href="mailto:noviz2025@gmail.com">noviz2025@gmail.com</a></dd></div>
+      <div><dt>GitHub</dt><dd><a href="https://github.com/noviz-domino" target="_blank" rel="noopener noreferrer">noviz-domino</a></dd></div>
+      <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/kim-min-seok-domino/" target="_blank" rel="noopener noreferrer">kim-min-seok-domino</a></dd></div>
+      <div><dt>생년월일</dt><dd>1998. 02. 01</dd></div>
+      <div><dt>병역</dt><dd>육군 만기 전역</dd></div>
+      <div><dt>현재</dt><dd>삼성 멀티캠퍼스 AI 에이전트 엔지니어 트랙 수강 중 (~2027.01)</dd></div>
+    </dl>
+
+    <nav class="toc" aria-label="목차">
+      <a href="#about">소개</a>
+      <a href="#highlights">핵심 성과</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#others">그 외 프로젝트</a>
+      <a href="#skills">기술</a>
+      <a href="#education">학력 · 교육</a>
+      <a href="#certs">자격 · 수상</a>
+    </nav>
+
+    <div class="actions">
+      <button class="btn primary" type="button" id="printBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>
+        PDF로 저장
+      </button>
+      <a class="btn" href="https://github.com/noviz-domino/portfolio" target="_blank" rel="noopener noreferrer">코드 모음</a>
+    </div>
+    <p class="updated">최종 수정 2026. 09. 30</p>
+  </aside>
+
+  <main>
+
+    <section id="about">
+      <h2><span>소개</span>ABOUT</h2>
+      <div class="about">
+        <p>컴퓨터정보보안을 전공했고, 지금은 삼성 멀티캠퍼스 AI 에이전트 엔지니어 트랙에서 <strong>LLM · RAG · 멀티 에이전트</strong>를 배우며 금융 도메인 과제를 중심으로 프로젝트를 진행하고 있습니다.</p>
+        <p>LLM은 그럴듯한 숫자를 지어낼 수 있습니다. 그래서 프로젝트마다 <strong>LLM이 맡을 일과 코드·사람이 맡을 일을 나누고</strong>, 그 경계가 지켜지는지 평가셋과 시나리오 테스트로 확인합니다. 실패한 시도와 설계를 바꾼 이유도 문서로 남깁니다.</p>
+        <p>AI 에이전트 외에도 Google Play에 출시한 Android 앱, 배포 중인 Next.js 웹 서비스 두 개를 혼자 만들어 운영해봤습니다. 필요한 영역이 있으면 직접 배워서 끝까지 완성하는 편입니다.</p>
+      </div>
+    </section>
+
+    <section id="highlights">
+      <h2><span>핵심 성과</span>HIGHLIGHTS</h2>
+      <ul class="hl">
+        <li><p class="num">34% → 94%</p><p>RAG 도입 후 AI 답변 초안의 1차 승인률. 답변 속 수치 정확률은 43.8% → 96.0%</p><p class="src">replygate · 평가셋 50건 실측</p></li>
+        <li><p class="num">47 / 47<small> 통과</small></p><p>잔액 부족·저장 실패·AI 서버 장애 등 실패 상황을 포함한 대화 시나리오에서 장부 무결성 유지</p><p class="src">langgraph-financial-agent</p></li>
+        <li><p class="num">188 → 4<small>회</small></p><p>무료 API 한도 초과(429)를 해결하려고 필터·일일 상한·배치 요약으로 줄인 하루 LLM 호출 수</p><p class="src">n8n-finance-news-briefing</p></li>
+        <li><p class="num">Google Play 출시</p><p>Kotlin·Compose로 전면 재작성한 토익 단어 앱. 퀴즈 로직을 JUnit 25건으로 고정</p><p class="src">englishWordApp</p></li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <h2><span>프로젝트</span>PROJECTS · 최신순</h2>
+
+      <article class="proj">
+        <p class="when">2026.09</p>
+        <div>
+          <h3>langgraph-financial-agent <span class="kr">· 대화형 은행 업무 AI 에이전트</span></h3>
+          <div class="meta"><span class="badge">개인 프로젝트</span><span class="badge">KDT 과제</span><span class="badge ok">완성 · 웹 데모</span></div>
+          <p class="desc">"생활비에서 저축으로 10만 원 보내줘" 같은 말을 이해해 계좌 조회·이체·카드 잠금을 처리합니다. 돈이나 카드 상태가 바뀌는 일은 사용자 승인을 받은 뒤에만 실행합니다.</p>
+          <ul class="points">
+            <li><span class="label">설계</span>LLM은 말을 해석하는 노드 한 곳에서만 사용하고, 잔액 계산·검사·저장·답변 문장은 모두 코드로 처리해 숫자가 LLM을 거치지 않게 했습니다.</li>
+            <li><span class="label">안전장치</span>LangGraph <code>interrupt</code>로 승인 전 실행을 멈추고, 저장은 무결성 규칙 10개를 통과해야만 한 번에 교체되도록(atomic write) 구현했습니다.</li>
+            <li><span class="label">검증</span>실패 상황을 포함한 대화 시나리오 47개를 자동으로 돌려 전부 통과했고, 설계 변경 27건을 이유와 함께 기록했습니다.</li>
+            <li><span class="label fail">문제 해결</span>프롬프트로 금지해도 LLM이 출금 계좌를 지어내는 것을 발견해, 규칙을 LLM 응답을 코드가 검증하는 방식으로 바꿨습니다.</li>
+          </ul>
+          <div class="tags"><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Gemini</span><span class="tag">FastAPI</span><span class="tag">Python 3.13</span></div>
+          <div class="links">
+            <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/langgraph-financial-agent" target="_blank" rel="noopener noreferrer">코드</a>
+            <a href="https://github.com/noviz-domino/portfolio/blob/main/projects/langgraph-financial-agent/docs/%EC%84%A4%EA%B3%84%EB%B3%80%EA%B2%BD%EA%B8%B0%EB%A1%9D.md" target="_blank" rel="noopener noreferrer">설계 변경 기록</a>
+          </div>
         </div>
-      </div>
-      <div class="avatar-card">
-        <img src="profile.jpg" alt="김민석 프로필 사진" width="480" height="480">
-        <p class="tag">Google Play 출시 앱 <b>1</b> · 배포 웹 <b>2</b></p>
-      </div>
-    </div>
-  </header>
-
-  <div class="metrics" role="list" aria-label="주요 수치">
-    <div class="metric" role="listitem">
-      <p class="num">34% → 94%</p>
-      <p class="what">RAG 적용 후 AI 초안의 1차 승인률</p>
-      <p class="src">replygate · 평가셋 50건</p>
-    </div>
-    <div class="metric" role="listitem">
-      <p class="num">47<small> / 47</small></p>
-      <p class="what">실패 상황 포함 대화 시나리오에서 장부 무결성 유지</p>
-      <p class="src">langgraph-financial-agent</p>
-    </div>
-    <div class="metric" role="listitem">
-      <p class="num">188 → 4<small>회</small></p>
-      <p class="what">무료 티어 한도 안으로 줄인 하루 LLM 호출 수</p>
-      <p class="src">n8n-finance-news-briefing</p>
-    </div>
-    <div class="metric" role="listitem">
-      <p class="num">0.943</p>
-      <p class="what">하이브리드 검색으로 올린 Page Hit@1 (베이스라인 0.886)</p>
-      <p class="src">rag-experiment-script</p>
-    </div>
-  </div>
-
-  <!-- 원칙 -->
-  <section class="block" id="principles">
-    <div class="sec-head">
-      <p class="sec-kicker">01 · 일하는 원칙</p>
-      <h2>프로젝트마다 같은 질문을 합니다.<br>"이 판단을 LLM에게 맡겨도 되는가?"</h2>
-    </div>
-    <div class="principles">
-      <article class="principle">
-        <p class="n">원칙 1</p>
-        <h3>LLM은 입구에만</h3>
-        <p>사람의 말을 해석하는 곳에서만 LLM을 씁니다. 계산·검증·저장·답변 문장은 코드가 맡아, 숫자가 모델을 거치지 않게 합니다.</p>
-        <p class="seen">금융 에이전트 · 식단 생성의 구조 검증</p>
       </article>
-      <article class="principle">
-        <p class="n">원칙 2</p>
-        <h3>사람이 멈출 수 있게</h3>
-        <p>돈이 나가거나 고객에게 발송되는 지점에는 승인 단계를 둡니다. AI를 빠르게 만드는 것보다 통제 가능하게 만드는 쪽을 택합니다.</p>
-        <p class="seen">은행 업무 승인 interrupt · CS 답장 텔레그램 승인</p>
-      </article>
-      <article class="principle">
-        <p class="n">원칙 3</p>
-        <h3>측정해서 말하기</h3>
-        <p>"좋아졌다" 대신 평가셋과 시나리오로 확인한 숫자를 남깁니다. 통과했지만 틀린 이유, 가짜 개선도 지우지 않고 기록합니다.</p>
-        <p class="seen">평가셋 함정 5건 · 설계 변경 기록 26건</p>
-      </article>
-    </div>
-  </section>
 
-  <!-- 대표 사례 -->
-  <section class="block" id="work">
-    <div class="sec-head">
-      <p class="sec-kicker">02 · 대표 사례</p>
-      <h2>문제 → 접근 → 측정 → 기록해둔 실패</h2>
-      <p>각 사례의 흐름도는 그 단계를 누가 맡는지 색으로 나눴습니다.</p>
-    </div>
-    <div class="legend" aria-label="흐름도 범례">
-      <span class="k"><span class="dot llm"></span>LLM이 맡는 단계</span>
-      <span class="k"><span class="dot code"></span>코드가 맡는 단계</span>
-      <span class="k"><span class="dot human"></span>사람이 판단하는 단계</span>
-    </div>
-
-    <article class="case">
-      <div>
-        <div class="case-top"><span class="idx">01</span><span class="status live">완성 · 웹 데모</span></div>
-        <h3>langgraph-financial-agent</h3>
-        <p class="one">승인을 받은 뒤에만 실행하는 대화형 은행 업무 에이전트</p>
-        <div class="tags"><span class="tag-chip">LangGraph</span><span class="tag-chip">Gemini</span><span class="tag-chip">FastAPI</span><span class="tag-chip">Python 3.13</span></div>
-        <div class="flow" aria-label="처리 흐름">
-          <span class="step">사용자 말</span><span class="arrow">→</span>
-          <span class="step llm">understand · 해석</span><span class="arrow">→</span>
-          <span class="step code">잔액·계좌 검사</span><span class="arrow">→</span>
-          <span class="step human">승인 interrupt</span><span class="arrow">→</span>
-          <span class="step code">무결성 10개 + atomic write</span><span class="arrow">→</span>
-          <span class="step code">정해진 틀의 답변</span>
+      <article class="proj">
+        <p class="when">2024.09 – 11<br>2026.09 – 재구축</p>
+        <div>
+          <h3>legal_secretary <span class="kr">· 노동법 조문 인용 RAG 비서</span></h3>
+          <div class="meta"><span class="badge">개인 프로젝트</span><span class="badge">캡스톤 · 졸업논문 주제</span><span class="badge wip">재구축 3 / 6단계</span></div>
+          <p class="desc">법률 질문에 관련 조문을 찾아 근거와 함께 답합니다. 2024년 캡스톤 버전을 기획·개발·인프라까지 단독으로 만들었고, 2026년에 구조를 전면 재구축하고 있습니다.</p>
+          <ul class="points">
+            <li><span class="label">재구축 이유</span>"민감한 법률 문서라 로컬 LLM을 쓴다"는 설계와 달리 실제로는 질문이 외부 터널을 거쳐 나가고 있던 문제를 스스로 찾아냈습니다.</li>
+            <li><span class="label">검색</span>"근로기준법 제56조"처럼 정확히 일치해야 하는 표현을 놓치지 않도록 조문 단위로 나누고, 키워드(BM25)와 의미(벡터) 검색을 합쳤습니다.</li>
+            <li><span class="label">응답</span>근거 조문을 답변보다 먼저 보내는 스트리밍(SSE)으로, 느린 무료 API(실측 8.8초)에서도 사용자가 기다리지 않게 했습니다.</li>
+          </ul>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">LangChain</span><span class="tag">Chroma</span><span class="tag">BM25</span><span class="tag">bge-m3</span><span class="tag">SSE</span></div>
+          <div class="links">
+            <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/legal_secretary" target="_blank" rel="noopener noreferrer">코드</a>
+            <a href="https://github.com/noviz-domino/portfolio/blob/main/projects/legal_secretary/docs/%EB%A6%AC%EB%B9%8C%EB%94%A9%EA%B3%84%ED%9A%8D.md" target="_blank" rel="noopener noreferrer">재구축 계획</a>
+          </div>
         </div>
-        <dl class="pa">
-          <div><dt>문제</dt><dd>"저축으로 10만 원 보내줘"를 LLM에게 통째로 맡기면 <strong>말하지 않은 출금 계좌를 지어내거나</strong> 잔액 계산을 틀려도 알아챌 수 없습니다.</dd></div>
-          <div><dt>접근</dt><dd>LLM은 말을 해석하는 <code class="mono">understand</code> 노드 한 곳에서만 씁니다. 돈이나 카드 상태가 바뀌는 일은 LangGraph <code class="mono">interrupt</code>로 멈춰 승인 뒤에만 실행하고, 저장은 무결성 규칙 10개를 통과해야 한 번에 교체됩니다.</dd></div>
-          <div class="fail"><dt>기록해둔 실패</dt><dd>"이어받을 계좌: 없음"이라고 프롬프트에 적어줘도 LLM이 출금 계좌를 채웠습니다. 한 번은 통과, 한 번은 실패 — <strong>프롬프트는 확률</strong>이라 판단하고, 규칙을 LLM 응답을 코드가 검증하는 방식으로 바꿨습니다.</dd></div>
-        </dl>
-      </div>
-      <div>
-        <div class="results">
-          <div class="result"><p class="num">47<span class="from"> / 47</span></p><p class="lbl">대화 시나리오 — 잔액 부족, 승인 대기 중 잔액 감소, 저장 실패, AI 서버 503 포함</p></div>
-          <div class="result"><p class="num">10<span class="from"> / 10</span></p><p class="lbl">시나리오를 모두 돌린 뒤 장부 무결성</p></div>
-          <div class="result"><p class="num">26<span class="from">건</span></p><p class="lbl">이유와 함께 남긴 설계 변경 기록</p></div>
-          <div class="result"><p class="num">3<span class="from">회/분</span></p><p class="lbl">방문자별 호출 제한 — 공개 데모의 API 비용 보호</p></div>
+      </article>
+
+      <article class="proj">
+        <p class="when">2026.08 – 09</p>
+        <div>
+          <h3>mealmate <span class="kr">· 냉장고 재료 기반 AI 주간 식단 생성</span></h3>
+          <div class="meta"><span class="badge">개인 프로젝트</span><span class="badge ok">배포 · 라이브 데모</span></div>
+          <p class="desc">재료를 입력하면 AI가 주간 식단과 장보기 목록을 만들고, 끼니별 조리법은 필요할 때 생성합니다.</p>
+          <ul class="points">
+            <li><span class="label">출력 검증</span>AI 출력 형식을 스키마로 강제한 뒤에도 구조를 다시 검사하고, 실패하면 한 번 재생성합니다.</li>
+            <li><span class="label">알레르기</span>우유를 피하는 사람에게 연유·생크림이 나오지 않도록 파생 재료까지 차단했습니다.</li>
+            <li><span class="label">보안</span>Supabase RLS로 사용자별 데이터를 격리했습니다. TypeScript 약 3,200줄을 3일 동안 개발했습니다.</li>
+          </ul>
+          <div class="tags"><span class="tag">Next.js 16</span><span class="tag">React 19</span><span class="tag">TypeScript</span><span class="tag">Supabase</span><span class="tag">Gemini</span><span class="tag">Vercel</span></div>
+          <div class="thumbs">
+            <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/mealmate/docs/screenshots/01-%ED%99%88-%EA%B3%B5%EA%B0%9C%EC%8B%9D%EB%8B%A8.png" alt="mealmate 공개 식단 홈 화면" loading="lazy">
+            <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/mealmate/docs/screenshots/05-AI%EA%B0%80%EB%A7%8C%EB%93%A0%EC%8B%9D%EB%8B%A8.png" alt="AI가 만든 주간 식단 화면" loading="lazy">
+            <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/mealmate/docs/screenshots/06-AI%EA%B0%80%EB%A7%8C%EB%93%A0%EC%A1%B0%EB%A6%AC%EB%B2%95.png" alt="AI가 만든 끼니별 조리법 화면" loading="lazy">
+          </div>
+          <div class="links">
+            <a href="https://mealmate-inky.vercel.app" target="_blank" rel="noopener noreferrer">라이브 데모</a>
+            <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/mealmate" target="_blank" rel="noopener noreferrer">코드</a>
+          </div>
         </div>
-        <p class="caption">직접 써보다 LLM이 출금 계좌를 지어내는 것을 발견해, 피해가 큰 출금 계좌만 "말했거나·이어받았거나·후보에서 고른 이름"으로 엄격히 제한했습니다.</p>
-        <div class="links">
-          <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/langgraph-financial-agent" target="_blank" rel="noopener noreferrer">코드</a>
-          <a href="https://github.com/noviz-domino/portfolio/blob/main/projects/langgraph-financial-agent/docs/%EC%84%A4%EA%B3%84%EB%B3%80%EA%B2%BD%EA%B8%B0%EB%A1%9D.md" target="_blank" rel="noopener noreferrer">설계 변경 기록</a>
+      </article>
+
+      <article class="proj">
+        <p class="when">2026.08</p>
+        <div>
+          <h3>replygate <span class="kr">· AI 초안 + 사람 승인 고객 응대 자동화</span></h3>
+          <div class="meta"><span class="badge">개인 프로젝트</span><span class="badge">KDT 미니프로젝트</span><span class="badge ok">완성 · 실측 평가</span></div>
+          <p class="desc">고객 문의가 오면 AI가 사내 정책 문서를 근거로 답변 초안을 쓰고, 담당자가 텔레그램에서 승인해야만 메일이 발송됩니다.</p>
+          <ul class="points">
+            <li><span class="label">설계</span>틀리면 분쟁이 되는 수치(환불 수수료·배송 기한) 때문에 자동 발송 대신 사람 승인 단계를 두었습니다.</li>
+            <li><span class="label">성과</span>평가셋 50건 기준 1차 승인률을 34% → 94%, 수치 정확률을 43.8% → 96.0%로 개선했습니다. 정책에 답이 없는 함정 질문 5건도 포함했습니다.</li>
+            <li><span class="label fail">문제 해결</span>감정 분류에서 한 클래스가 전혀 선택되지 않는 원인이 두 기준을 하나로 섞은 데 있음을 찾아, 두 축으로 분리해 정확도 98% / 92%를 얻었습니다.</li>
+          </ul>
+          <div class="tags"><span class="tag">n8n</span><span class="tag">Gemini</span><span class="tag">RAG</span><span class="tag">FastAPI</span><span class="tag">Telegram Bot</span></div>
+          <div class="thumbs one">
+            <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/replygate/docs/screenshots/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8-%EC%A0%95%EC%B1%85%EC%B6%A9%EB%8F%8C-%EA%B0%90%EC%A7%80.png" alt="담당자의 수정 지시가 정책과 충돌하자 경고를 띄운 텔레그램 승인 카드" loading="lazy">
+          </div>
+          <div class="links">
+            <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/replygate" target="_blank" rel="noopener noreferrer">코드</a>
+            <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/replygate/eval" target="_blank" rel="noopener noreferrer">평가셋 설계</a>
+          </div>
         </div>
-      </div>
-    </article>
+      </article>
 
-    <article class="case">
-      <div>
-        <div class="case-top"><span class="idx">02</span><span class="status live">완성 · 실측 평가</span></div>
-        <h3>replygate</h3>
-        <p class="one">AI가 초안을 쓰고 사람이 승인해야 나가는 고객 문의 응대 자동화</p>
-        <div class="tags"><span class="tag-chip">n8n</span><span class="tag-chip">Gemini</span><span class="tag-chip">RAG</span><span class="tag-chip">FastAPI</span><span class="tag-chip">Telegram</span></div>
-        <div class="flow" aria-label="처리 흐름">
-          <span class="step">고객 문의</span><span class="arrow">→</span>
-          <span class="step llm">유형·감정 분류</span><span class="arrow">→</span>
-          <span class="step code">정책 조항 70개 검색</span><span class="arrow">→</span>
-          <span class="step llm">근거 인용 초안</span><span class="arrow">→</span>
-          <span class="step human">텔레그램 승인</span><span class="arrow">→</span>
-          <span class="step code">발송 · 수정 차단</span>
+      <article class="proj">
+        <p class="when">2026.06 – 08</p>
+        <div>
+          <h3>englishWordApp <span class="kr">· 토익 단어 학습 Android 앱</span></h3>
+          <div class="meta"><span class="badge">개인 프로젝트</span><span class="badge ok">Google Play 출시</span></div>
+          <p class="desc">뜻을 가리고 외우는 학습, 진행도 이어보기, TTS 발음, 오답노트, 4지선다 퀴즈를 제공합니다. 단어 1,222개.</p>
+          <ul class="points">
+            <li><span class="label">재작성</span>직접 만든 Java 버전의 문제(뜻이 항상 보임, 1,225행 중 835행에 따옴표 노출, 화면 회전 시 진행도 초기화)를 Kotlin·Compose로 전면 재작성해 해결했습니다.</li>
+            <li><span class="label">품질</span>퀴즈 출제 로직을 순수 함수로 분리해 JUnit 테스트 25건으로 고정하고, 앱이 종료됐다 다시 켜져도 학습 위치를 복원합니다.</li>
+          </ul>
+          <div class="tags"><span class="tag">Kotlin</span><span class="tag">Jetpack Compose</span><span class="tag">JUnit</span><span class="tag">Android</span></div>
+          <div class="thumbs">
+            <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/englishWordApp/docs/brand/play-store/capture/main.png" alt="englishWordApp 홈 화면" loading="lazy">
+            <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/englishWordApp/docs/brand/play-store/capture/word.png" alt="englishWordApp 단어 학습 화면" loading="lazy">
+            <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/englishWordApp/docs/brand/play-store/capture/game.png" alt="englishWordApp 퀴즈 화면" loading="lazy">
+          </div>
+          <div class="links">
+            <a href="https://play.google.com/store/apps/details?id=com.voca.englishwordapp" target="_blank" rel="noopener noreferrer">Google Play</a>
+            <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/englishWordApp" target="_blank" rel="noopener noreferrer">코드</a>
+          </div>
         </div>
-        <dl class="pa">
-          <div><dt>문제</dt><dd>환불 수수료·배송 기한처럼 <strong>틀리면 곧바로 분쟁이 되는 수치</strong>를 LLM은 그럴듯하게 지어냅니다. 자동 답장은 실무에 그대로 넣을 수 없습니다.</dd></div>
-          <div><dt>접근</dt><dd>자동 발송 대신 <strong>AI 초안 → 사람 승인 → 발송</strong>. 담당자의 수정 지시가 정책과 충돌하면 그대로 따르지 않고 충돌 사실만 드러내 판단을 사람에게 넘깁니다.</dd></div>
-          <div class="fail"><dt>기록해둔 실패</dt><dd>감정 분류에서 <code class="mono">중립</code>이 20번 중 0번 선택됐고, 정의를 고쳐도 여전히 0이었습니다. <strong>감정과 조회필요가 직교하는 두 축</strong>이라는 원인을 찾아 분리했고(98% / 92%), 중간 버전이 "라벨만 옮긴 가짜 개선"이었다는 사실도 남겼습니다.</dd></div>
-        </dl>
-      </div>
-      <div>
-        <div class="results">
-          <div class="result"><p class="num">94%<span class="from"> ← 34%</span></p><p class="lbl">1차 승인률 (평가셋 50건, RAG 없음 대비)</p></div>
-          <div class="result"><p class="num">96%<span class="from"> ← 43.8%</span></p><p class="lbl">답변 속 수치 정확률</p></div>
-        </div>
-        <figure class="shot-one">
-          <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/replygate/docs/screenshots/%ED%85%94%EB%A0%88%EA%B7%B8%EB%9E%A8-%EC%A0%95%EC%B1%85%EC%B6%A9%EB%8F%8C-%EA%B0%90%EC%A7%80.png" alt="담당자의 수정 지시가 정책과 충돌하자 경고를 띄운 텔레그램 승인 카드" loading="lazy">
-          <figcaption class="caption">"무료배송 3만원으로 안내해줘"라는 지시에, 정책(5만원)과의 충돌을 먼저 알리는 승인 카드. 평가셋에는 정책에 답이 없는 함정 5건을 일부러 넣었습니다.</figcaption>
-        </figure>
-        <div class="links">
-          <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/replygate" target="_blank" rel="noopener noreferrer">코드</a>
-          <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/replygate/eval" target="_blank" rel="noopener noreferrer">평가셋 설계</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="case">
-      <div>
-        <div class="case-top"><span class="idx">03</span><span class="status wip">재구축 3 / 6단계</span><span class="status">개인 프로젝트 · 기획부터 인프라까지 단독</span></div>
-        <h3>legal_secretary</h3>
-        <p class="one">근거 조문을 먼저 보여주는 노동법 RAG 비서</p>
-        <div class="tags"><span class="tag-chip">FastAPI</span><span class="tag-chip">LangChain</span><span class="tag-chip">Chroma</span><span class="tag-chip">BM25</span><span class="tag-chip">bge-m3</span><span class="tag-chip">SSE</span></div>
-        <div class="flow" aria-label="처리 흐름">
-          <span class="step">법률 질문</span><span class="arrow">→</span>
-          <span class="step code">조문 단위 청킹</span><span class="arrow">→</span>
-          <span class="step code">BM25 + 벡터 RRF</span><span class="arrow">→</span>
-          <span class="step code">근거 조문 먼저 전송</span><span class="arrow">→</span>
-          <span class="step llm">답변 스트리밍</span>
-        </div>
-        <dl class="pa">
-          <div><dt>문제</dt><dd>2024년 캡스톤 버전은 "법률 문서는 민감하니 로컬 LLM을 쓴다"고 했지만, 실제로는 질문을 ngrok 공개 터널로 Colab에 보내고 있었습니다. <strong>설계의 주장을 구현이 달성하지 못한 상태</strong>를 스스로 찾아내 재구축을 시작했습니다.</dd></div>
-          <div><dt>접근</dt><dd>"근로기준법 제56조"처럼 정확히 일치해야 하는 토큰이 많아 벡터 검색만으로는 놓치기 쉽습니다. <code class="mono">제N조</code> 경계로 자르고 BM25와 벡터를 RRF로 합쳤으며, 답변보다 근거 조문을 먼저 스트리밍합니다.</dd></div>
-        </dl>
-      </div>
-      <div>
-        <div class="results">
-          <div class="result"><p class="num">264<span class="from">개</span></p><p class="lbl">법령 PDF 2종에서 만든 조문 청크</p></div>
-          <div class="result"><p class="num">1.4–2<span class="from">초</span></p><p class="lbl">하이브리드 검색 시간</p></div>
-          <div class="result"><p class="num">8.8<span class="from">초</span></p><p class="lbl">무료 티어 응답 시간 실측 — 스트리밍을 앞당긴 근거</p></div>
-        </div>
-        <p class="caption">남은 단계: LangGraph 재검색 루프 · 법률 QA 평가셋 · 채팅 UI · 배포. 완성되지 않은 부분은 완성되지 않았다고 적어둡니다.</p>
-        <div class="links">
-          <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/legal_secretary" target="_blank" rel="noopener noreferrer">코드</a>
-          <a href="https://github.com/noviz-domino/portfolio/blob/main/projects/legal_secretary/docs/%EB%A6%AC%EB%B9%8C%EB%94%A9%EA%B3%84%ED%9A%8D.md" target="_blank" rel="noopener noreferrer">리빌딩 계획</a>
-        </div>
-      </div>
-    </article>
-
-    <article class="case">
-      <div>
-        <div class="case-top"><span class="idx">04</span><span class="status live">Google Play 출시</span></div>
-        <h3>englishWordApp</h3>
-        <p class="one">뜻을 가리고 외우는 토익 단어 학습 앱</p>
-        <div class="tags"><span class="tag-chip">Kotlin</span><span class="tag-chip">Jetpack Compose</span><span class="tag-chip">JUnit</span></div>
-        <dl class="pa">
-          <div><dt>문제</dt><dd>직접 만든 Java 버전은 단어와 뜻이 늘 같이 보여 암기 검증이 불가능했고, CSV 파서가 따옴표를 처리하지 못해 <strong>1,225행 중 835행에 <code class="mono">"</code>가 노출</strong>됐으며, 화면 회전만으로 진행도가 초기화됐습니다.</dd></div>
-          <div><dt>접근</dt><dd>Kotlin + Compose로 전면 재작성. CSV 파서를 RFC 4180 기준으로 다시 만들고, 퀴즈 출제 로직을 순수 함수로 분리해 <strong>JUnit 25건</strong>으로 고정하고, <code class="mono">SavedStateHandle</code>로 프로세스 재생성까지 복원합니다.</dd></div>
-        </dl>
-        <div class="links">
-          <a href="https://play.google.com/store/apps/details?id=com.voca.englishwordapp" target="_blank" rel="noopener noreferrer">Google Play</a>
-          <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/englishWordApp" target="_blank" rel="noopener noreferrer">코드</a>
-        </div>
-      </div>
-      <div>
-        <div class="shots three phone">
-          <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/englishWordApp/docs/brand/play-store/capture/main.png" alt="englishWordApp 홈 화면" loading="lazy">
-          <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/englishWordApp/docs/brand/play-store/capture/word.png" alt="englishWordApp 단어 학습 화면" loading="lazy">
-          <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/englishWordApp/docs/brand/play-store/capture/game.png" alt="englishWordApp 퀴즈 화면" loading="lazy">
-        </div>
-        <p class="caption">홈 · 단어 학습 · 4지선다 퀴즈. 단어 1,222행, 오답노트와 TTS 발음 지원.</p>
-      </div>
-    </article>
-
-    <article class="case">
-      <div>
-        <div class="case-top"><span class="idx">05</span><span class="status live">배포 · 라이브 데모</span></div>
-        <h3>mealmate</h3>
-        <p class="one">냉장고 재료로 AI가 짜주는 주간 식단과 장보기 목록</p>
-        <div class="tags"><span class="tag-chip">Next.js 16</span><span class="tag-chip">React 19</span><span class="tag-chip">Supabase</span><span class="tag-chip">Gemini</span></div>
-        <div class="flow" aria-label="처리 흐름">
-          <span class="step">재료 입력</span><span class="arrow">→</span>
-          <span class="step llm">responseSchema로 식단 생성</span><span class="arrow">→</span>
-          <span class="step code">구조 검증</span><span class="arrow">→</span>
-          <span class="step code">알레르기 파생어 검사</span><span class="arrow">→</span>
-          <span class="step code">실패 시 1회 재생성</span>
-        </div>
-        <dl class="pa">
-          <div><dt>접근</dt><dd>스키마로 모양을 강제한 뒤에도 <strong>LLM 출력을 그대로 믿지 않습니다.</strong> 우유를 피하는 사람에게 연유·생크림이 나오지 않도록 파생 재료까지 막고, Supabase RLS로 사용자별 데이터를 격리했습니다.</dd></div>
-        </dl>
-        <div class="links">
-          <a href="https://mealmate-inky.vercel.app" target="_blank" rel="noopener noreferrer">라이브 데모</a>
-          <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/mealmate" target="_blank" rel="noopener noreferrer">코드</a>
-        </div>
-      </div>
-      <div>
-        <div class="shots three web">
-          <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/mealmate/docs/screenshots/01-%ED%99%88-%EA%B3%B5%EA%B0%9C%EC%8B%9D%EB%8B%A8.png" alt="mealmate 공개 식단 홈 화면" loading="lazy">
-          <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/mealmate/docs/screenshots/05-AI%EA%B0%80%EB%A7%8C%EB%93%A0%EC%8B%9D%EB%8B%A8.png" alt="AI가 만든 주간 식단 화면" loading="lazy">
-          <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/mealmate/docs/screenshots/06-AI%EA%B0%80%EB%A7%8C%EB%93%A0%EC%A1%B0%EB%A6%AC%EB%B2%95.png" alt="AI가 만든 끼니별 조리법 화면" loading="lazy">
-        </div>
-        <p class="caption">TypeScript 약 3,200줄 · 3일 개발. 무료 플랜이라 데모가 일시정지되어 있을 수 있습니다.</p>
-      </div>
-    </article>
-  </section>
-
-  <!-- 전체 프로젝트 -->
-  <section class="block" id="all">
-    <div class="sec-head">
-      <p class="sec-kicker">03 · 전체 프로젝트</p>
-      <h2>분야를 가리지 않고, 손에 익을 때까지 만들어봅니다</h2>
-    </div>
-    <div class="filters" role="group" aria-label="분야 필터">
-      <button class="filter" type="button" data-f="all" aria-pressed="true">전체<span class="c" data-count="all"></span></button>
-      <button class="filter" type="button" data-f="ai" aria-pressed="false">AI 에이전트 · LLM<span class="c" data-count="ai"></span></button>
-      <button class="filter" type="button" data-f="app" aria-pressed="false">앱 · 웹<span class="c" data-count="app"></span></button>
-      <button class="filter" type="button" data-f="data" aria-pressed="false">데이터 · 게임<span class="c" data-count="data"></span></button>
-    </div>
-    <div class="grid" id="projectGrid">
-
-      <article class="card" data-cat="ai">
-        <div class="meta"><span class="cat">AI 에이전트</span><span class="mono">2026.09</span></div>
-        <h4>langgraph-financial-agent<small>LangGraph · Gemini · FastAPI</small></h4>
-        <p>승인 후에만 실행하는 대화형 은행 업무 에이전트. LLM은 말을 해석하는 한 곳에서만 씁니다.</p>
-        <p class="hl"><b>47/47</b> 대화 시나리오 · 무결성 규칙 10개</p>
-        <div class="links"><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/langgraph-financial-agent" target="_blank" rel="noopener noreferrer">코드</a></div>
       </article>
+    </section>
 
-      <article class="card" data-cat="ai">
-        <div class="meta"><span class="cat">AI 에이전트</span><span class="mono">2026.08</span></div>
-        <h4>replygate<small>n8n · Gemini · RAG · FastAPI</small></h4>
-        <p>AI 초안 + 사람 승인으로 운영하는 고객 문의 응대 자동화. 정책 조항을 근거로 인용합니다.</p>
-        <p class="hl">1차 승인률 <b>34% → 94%</b></p>
-        <div class="links"><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/replygate" target="_blank" rel="noopener noreferrer">코드</a></div>
-      </article>
+    <section id="others">
+      <h2><span>그 외 프로젝트</span>OTHERS</h2>
+      <table class="others">
+        <thead><tr><th>기간</th><th>프로젝트</th><th class="stack">기술</th><th>링크</th></tr></thead>
+        <tbody>
+          <tr><td>2026.09</td><td><b>multi-agent-tax-prep</b>종합소득세 신고 준비 멀티 에이전트 (리서치·계획·검토)<span class="s">LLM 없이 도는 테스트 57개</span></td><td class="stack">LangGraph · Gemini</td><td><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/multi-agent-tax-prep" target="_blank" rel="noopener noreferrer">코드</a></td></tr>
+          <tr><td>2026.09</td><td><b>rag-experiment-script</b>설정 20개로 청킹·검색·리랭킹을 비교한 RAG 실험<span class="s">하이브리드 검색 Page Hit@1 0.943 (기준 0.886)</span></td><td class="stack">LangChain · Chroma · BM25</td><td><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/rag-experiment-script" target="_blank" rel="noopener noreferrer">코드</a></td></tr>
+          <tr><td>2026.08 – 09</td><td><b>personal-budget-ai-agent</b>자연어로 쓰는 가계부 에이전트 (도구 7개)</td><td class="stack">Gemini Function Calling</td><td><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/personal-budget-ai-agent" target="_blank" rel="noopener noreferrer">코드</a></td></tr>
+          <tr><td>2026.08 – 09</td><td><b>가봐야 알지 (go-eat)</b>시골 맛집 기록 웹앱, 8시간 제약 개발<span class="s">데모 계정 test1@goeat.test / test1234</span></td><td class="stack">Next.js · Supabase</td><td><a href="https://go-eat-noviz.vercel.app" target="_blank" rel="noopener noreferrer">데모</a> · <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/go-eat" target="_blank" rel="noopener noreferrer">코드</a></td></tr>
+          <tr><td>2026.08</td><td><b>n8n-finance-news-briefing</b>금융 뉴스 자동 요약 브리핑<span class="s">하루 API 호출 188회 → 4회</span></td><td class="stack">n8n · Gemini · Discord</td><td><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/n8n-finance-news-briefing" target="_blank" rel="noopener noreferrer">코드</a></td></tr>
+          <tr><td>2026.08</td><td><b>n8n-voc-analysis-agent</b>고객 VOC 자동 분류·긴급 알림</td><td class="stack">n8n · Gemini · Sheets</td><td><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/n8n-voc-analysis-agent" target="_blank" rel="noopener noreferrer">코드</a></td></tr>
+          <tr><td>2026.07 – 08</td><td><b>스쳐야 산다 (cosmic-grazer)</b>단일 HTML 파일 탄막 서바이버 게임</td><td class="stack">Vanilla JS · Canvas2D</td><td><a href="https://noviz-domino.github.io/cosmic-grazer/" target="_blank" rel="noopener noreferrer">플레이</a></td></tr>
+          <tr><td>2026.07</td><td><b>대통령: 외교의 신</b>Gemini 기반 정치·외교 텍스트 RPG</td><td class="stack">FastAPI · Gemini</td><td><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/god-of-diplomacy" target="_blank" rel="noopener noreferrer">코드</a></td></tr>
+          <tr><td>2026.04 – 09</td><td><b>data-value-sandbox</b>합성 세계로 "어떤 데이터가 사건을 예측 가능하게 하는가" 측정<span class="s">표적 추론 top-1 51.5% (기준선의 3.81배)</span></td><td class="stack">deck.gl · Jupyter</td><td><a href="https://noviz-domino.github.io/data-value-sandbox/" target="_blank" rel="noopener noreferrer">데모</a></td></tr>
+          <tr><td>2021.12</td><td><b>GTD 테러예측모델</b>글로벌 테러 데이터 분석·예측 (2인 팀)</td><td class="stack">Python · Scikit-learn</td><td><a href="https://github.com/noviz-domino/gtd-terror-analysis-project" target="_blank" rel="noopener noreferrer">저장소</a></td></tr>
+        </tbody>
+      </table>
+    </section>
 
-      <article class="card" data-cat="ai">
-        <div class="meta"><span class="cat">RAG</span><span class="mono">2024 → 2026.09</span></div>
-        <h4>legal_secretary<small>FastAPI · Chroma · BM25 · bge-m3</small></h4>
-        <p>조문 경계 청킹과 하이브리드 검색으로 근거 조문을 먼저 보여주는 노동법 RAG. 2024년 캡스톤(졸업논문 주제)을 재구축 중입니다.</p>
-        <p class="hl">재구축 <b>3 / 6단계</b> 완료</p>
-        <div class="links"><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/legal_secretary" target="_blank" rel="noopener noreferrer">코드</a></div>
-      </article>
+    <section id="skills">
+      <h2><span>기술</span>SKILLS</h2>
+      <dl class="skills">
+        <div><dt>AI · Agent</dt><dd><span class="chip">LangGraph</span><span class="chip">LangChain</span><span class="chip">Gemini API</span><span class="chip">Function Calling</span><span class="chip">Structured Output</span><span class="chip">n8n</span></dd></div>
+        <div><dt>RAG · 검색</dt><dd><span class="chip">Chroma</span><span class="chip">BM25</span><span class="chip">하이브리드 검색(RRF)</span><span class="chip">Reranking</span><span class="chip">평가셋 설계</span></dd></div>
+        <div><dt>Backend</dt><dd><span class="chip">FastAPI</span><span class="chip">Flask</span><span class="chip">Supabase</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span></dd></div>
+        <div><dt>Frontend · Mobile</dt><dd><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">Tailwind CSS</span><span class="chip">Jetpack Compose</span></dd></div>
+        <div><dt>Language</dt><dd><span class="chip">Python</span><span class="chip">C</span><span class="chip">TypeScript</span><span class="chip">JavaScript</span><span class="chip">Kotlin</span></dd></div>
+        <div><dt>Infra · Tool</dt><dd><span class="chip">Git · GitHub</span><span class="chip">GitHub Actions</span><span class="chip">Vercel</span><span class="chip">Oracle Cloud</span><span class="chip">Ollama</span><span class="chip">Linux</span><span class="chip">Claude Code</span></dd></div>
+        <div><dt>학습 경험</dt><dd><span class="chip ghost">Java</span><span class="chip ghost">PyTorch</span><span class="chip ghost">TensorFlow</span><span class="chip ghost">Alibaba Cloud</span></dd></div>
+      </dl>
+      <p class="note">점선 항목은 학습했지만 프로젝트에서 사용한 경험은 없는 기술입니다.</p>
+    </section>
 
-      <article class="card" data-cat="ai">
-        <div class="meta"><span class="cat">RAG 실험</span><span class="mono">2026.09</span></div>
-        <h4>rag-experiment-script<small>LangChain · Chroma · BM25 · Gemini</small></h4>
-        <p>YAML 설정 20개로 청크 크기·검색 방식·리랭킹·프롬프트를 바꿔가며 비교한 실험 하네스. 질문 35개라 1문항 = 2.86%p라는 한계도 함께 적었습니다.</p>
-        <p class="hl">하이브리드 Page Hit@1 <b>0.943</b> · 리랭킹은 +0.2 대신 <b>8배 느림</b></p>
-        <div class="links"><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/rag-experiment-script" target="_blank" rel="noopener noreferrer">코드 · 보고서</a></div>
-      </article>
+    <section id="education">
+      <h2><span>학력 · 교육</span>EDUCATION</h2>
+      <ul class="tl">
+        <li>
+          <p class="when">2026.07 – 2027.01</p>
+          <div>
+            <h3>삼성 멀티캠퍼스 · AI 에이전트 엔지니어 트랙 1회차 <span class="badge wip">수강 중</span></h3>
+            <p class="sub">984시간 · 금융 AI 서비스 개발을 실습 축으로 하는 과정</p>
+            <p class="mods">
+              <span>단위기간 1</span>LLM · 프롬프트 · n8n — replygate 외 2건<br>
+              <span>단위기간 2</span>Python AI 웹개발 · LangChain — 가계부 에이전트 · RAG 실험<br>
+              <span>단위기간 3</span>LangGraph · MCP · 멀티 에이전트 — 금융 에이전트 · 세금 신고 에이전트<br>
+              <span>단위기간 4–6</span><i>RAG 시스템 설계 · 프로덕션(Docker·AWS·CI/CD) · 종합 프로젝트 예정</i>
+            </p>
+          </div>
+        </li>
+        <li>
+          <p class="when">2017.03 – 2026.03</p>
+          <div><h3>우송대학교 컴퓨터정보보안학과</h3><p class="sub">수료</p></div>
+        </li>
+        <li>
+          <p class="when">2019.03 – 2024.01</p>
+          <div><h3>베이징이공대학 공동학위과정</h3><p class="sub">Beijing Institute of Technology · 중퇴 · 다국적 팀 프로젝트 수행</p></div>
+        </li>
+      </ul>
+    </section>
 
-      <article class="card" data-cat="ai">
-        <div class="meta"><span class="cat">멀티 에이전트</span><span class="mono">2026.09</span></div>
-        <h4>multi-agent-tax-prep<small>LangGraph · Gemini · Pydantic</small></h4>
-        <p>라우터와 리서치·계획·검토 에이전트로 종합소득세 신고 의무와 서류 체크리스트를 정리합니다. 검토 에이전트는 Reflection 루프로 계획을 되돌립니다.</p>
-        <p class="hl">테스트 5개 통과인데 검사 코드는 <b>한 번도 실행 안 됨</b> — "통과 ≠ 동작"을 기록</p>
-        <div class="links"><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/multi-agent-tax-prep" target="_blank" rel="noopener noreferrer">코드</a></div>
-      </article>
-
-      <article class="card" data-cat="ai">
-        <div class="meta"><span class="cat">자동화</span><span class="mono">2026.08</span></div>
-        <h4>n8n-finance-news-briefing<small>n8n · Gemini · Discord</small></h4>
-        <p>매일 08:30 금융 뉴스를 모아 중복을 거르고 요약해 Discord로 보냅니다. 중복 차단과 키워드 필터를 LLM 호출보다 앞에 뒀습니다.</p>
-        <p class="hl">API 호출 <b>188회 → 4회</b> · URL 정규화 + SHA-256 중복 차단</p>
-        <div class="links"><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/n8n-finance-news-briefing" target="_blank" rel="noopener noreferrer">코드</a></div>
-      </article>
-
-      <article class="card" data-cat="ai">
-        <div class="meta"><span class="cat">자동화</span><span class="mono">2026.08</span></div>
-        <h4>n8n-voc-analysis-agent<small>n8n · Gemini · Sheets</small></h4>
-        <p>고객 VOC를 자동으로 분류하고 긴급 건은 바로 알림을 보내는 워크플로입니다.</p>
-        <div class="links"><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/n8n-voc-analysis-agent" target="_blank" rel="noopener noreferrer">코드</a></div>
-      </article>
-
-      <article class="card" data-cat="ai">
-        <div class="meta"><span class="cat">Function Calling</span><span class="mono">2026.09</span></div>
-        <h4>personal-budget-ai-agent<small>Gemini Function Calling · Python</small></h4>
-        <p>"어제 점심 만 원" 같은 말로 가계부를 씁니다. 도구 7개(기록·검색·수정·삭제·예산·현황·월간 리포트)를 모델이 골라 호출합니다.</p>
-        <div class="links"><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/personal-budget-ai-agent" target="_blank" rel="noopener noreferrer">코드</a></div>
-      </article>
-
-      <article class="card" data-cat="ai">
-        <div class="meta"><span class="cat">LLM 게임</span><span class="mono">2026.07</span></div>
-        <h4>대통령: 외교의 신<small>god-of-diplomacy · FastAPI · Gemini</small></h4>
-        <p>Gemini 기반 정치·외교 텍스트 RPG. 대화가 쌓여도 토큰이 늘지 않게 백엔드를 스테이트리스로 두고, API 키는 서버를 거치게 했습니다.</p>
-        <div class="links"><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/god-of-diplomacy" target="_blank" rel="noopener noreferrer">코드</a></div>
-      </article>
-
-      <article class="card" data-cat="app">
-        <div class="meta"><span class="cat">Android</span><span class="mono">2026.06 –</span></div>
-        <h4>englishWordApp<small>Kotlin · Jetpack Compose</small></h4>
-        <p>뜻 가리기 학습 · 진행도 이어보기 · TTS · 오답노트 · 4지선다 퀴즈를 갖춘 토익 단어 앱.</p>
-        <p class="hl"><b>Google Play 출시</b> · JUnit 25건</p>
-        <div class="links"><a href="https://play.google.com/store/apps/details?id=com.voca.englishwordapp" target="_blank" rel="noopener noreferrer">스토어</a><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/englishWordApp" target="_blank" rel="noopener noreferrer">코드</a></div>
-      </article>
-
-      <article class="card" data-cat="app">
-        <div class="meta"><span class="cat">웹 서비스</span><span class="mono">2026.08</span></div>
-        <h4>mealmate<small>Next.js · Supabase · Gemini</small></h4>
-        <p>재료를 넣으면 주간 식단과 장보기 목록을 만들고, 끼니별 조리법은 필요할 때 생성합니다.</p>
-        <p class="hl">스키마 강제 + <b>알레르기 파생어 차단</b> · RLS 격리</p>
-        <div class="links"><a href="https://mealmate-inky.vercel.app" target="_blank" rel="noopener noreferrer">데모</a><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/mealmate" target="_blank" rel="noopener noreferrer">코드</a></div>
-      </article>
-
-      <article class="card" data-cat="app">
-        <div class="meta"><span class="cat">웹 서비스</span><span class="mono">2026.08</span></div>
-        <h4>가봐야 알지<small>go-eat · Next.js · Supabase</small></h4>
-        <p>리뷰도 지도 등록도 거의 없는 시골 맛집을 직접 다녀와 기록하는 웹앱. 8시간 제약 안에서 개발했습니다.</p>
-        <p class="hl">데모 계정 <b class="mono">test1@goeat.test</b> / <b class="mono">test1234</b></p>
-        <div class="links"><a href="https://go-eat-noviz.vercel.app" target="_blank" rel="noopener noreferrer">데모</a><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/go-eat" target="_blank" rel="noopener noreferrer">코드</a></div>
-      </article>
-
-      <article class="card" data-cat="data">
-        <div class="meta"><span class="cat">데이터 분석</span><span class="mono">2026.04 – 09</span></div>
-        <h4>data-value-sandbox<small>deck.gl · Vanilla JS · Jupyter</small></h4>
-        <p>정답을 아는 합성 세계를 만들어 "어떤 데이터가 사건을 예측 가능하게 만드는가"를 측정합니다. 한계와 상·하한선을 함께 제시했습니다.</p>
-        <p class="hl">표적 추론 top-1 <b>51.5%</b> — 기준선(13.5%)의 <b>3.81배</b></p>
-        <div class="links"><a href="https://noviz-domino.github.io/data-value-sandbox/" target="_blank" rel="noopener noreferrer">데모</a><a href="https://github.com/noviz-domino/data-value-sandbox" target="_blank" rel="noopener noreferrer">저장소</a></div>
-      </article>
-
-      <article class="card" data-cat="data">
-        <div class="meta"><span class="cat">머신러닝</span><span class="mono">2021.12</span></div>
-        <h4>GTD 테러예측모델<small>Python · Pandas · Scikit-learn</small></h4>
-        <p>Global Terrorism Database로 테러 발생 패턴을 분석하고 위험도를 예측한 2인 팀 프로젝트. 전처리와 Feature Engineering이 성능을 좌우한다는 것을 처음 체감했습니다.</p>
-        <div class="links"><a href="https://github.com/noviz-domino/gtd-terror-analysis-project" target="_blank" rel="noopener noreferrer">저장소 · 발표자료</a></div>
-      </article>
-
-      <article class="card" data-cat="data">
-        <div class="meta"><span class="cat">게임</span><span class="mono">2026.08</span></div>
-        <h4>스쳐야 산다<small>cosmic-grazer · Vanilla JS · Canvas2D</small></h4>
-        <p>외부 라이브러리 없이 단일 HTML 파일로 동작하는 우주 탄막 서바이버. 브라우저에서 바로 플레이할 수 있습니다.</p>
-        <div class="links"><a href="https://noviz-domino.github.io/cosmic-grazer/" target="_blank" rel="noopener noreferrer">플레이</a><a href="https://github.com/noviz-domino/cosmic-grazer" target="_blank" rel="noopener noreferrer">저장소</a></div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- 기술 -->
-  <section class="block" id="stack">
-    <div class="sec-head">
-      <p class="sec-kicker">04 · 기술</p>
-      <h2>프로젝트에서 직접 써본 것</h2>
-    </div>
-    <div class="stack-grid">
-      <div class="stack-group">
-        <h3>AI · Agent</h3>
-        <div class="chips"><span class="chip">LangGraph</span><span class="chip">LangChain</span><span class="chip">Gemini API</span><span class="chip">Function Calling</span><span class="chip">Structured Output</span><span class="chip">n8n</span><span class="chip">Prompt Engineering</span></div>
+    <section id="certs">
+      <h2><span>자격 · 수상</span>CERTIFICATES &amp; AWARDS</h2>
+      <ul class="tl">
+        <li><p class="when">군 복무 중</p><div><h3>C4I 체계 전산운용 1위</h3><p class="sub">대한민국 육군 정보통신학교 준장 표창</p></div></li>
+        <li><p class="when">2026.03</p><div><h3>TOEIC 545</h3></div></li>
+        <li><p class="when">보유</p><div><h3>초경량비행장치 1급 (드론)</h3></div></li>
+        <li><p class="when">준비 중</p><div><h3>정보처리기사 · 정보보안기사 실기</h3></div></li>
+      </ul>
+      <div class="contact-box">
+        <p>코드·시연 영상·발표자료가 더 필요하시면 메일로 요청해 주세요.</p>
+        <a class="btn primary" href="mailto:noviz2025@gmail.com">noviz2025@gmail.com</a>
       </div>
-      <div class="stack-group">
-        <h3>RAG · 검색</h3>
-        <div class="chips"><span class="chip">Chroma</span><span class="chip">BM25</span><span class="chip">Hybrid RRF</span><span class="chip">Reranking</span><span class="chip">bge-m3</span><span class="chip">LLM-as-judge 평가</span></div>
-      </div>
-      <div class="stack-group">
-        <h3>Backend · Data</h3>
-        <div class="chips"><span class="chip">Python</span><span class="chip">C</span><span class="chip">FastAPI</span><span class="chip">SSE 스트리밍</span><span class="chip">Flask</span><span class="chip">Supabase</span><span class="chip">PostgreSQL</span><span class="chip">MySQL</span><span class="chip">Pandas</span><span class="chip">NumPy</span></div>
-      </div>
-      <div class="stack-group">
-        <h3>Frontend · Mobile</h3>
-        <div class="chips"><span class="chip">Next.js</span><span class="chip">React</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span><span class="chip">Kotlin</span><span class="chip">Jetpack Compose</span><span class="chip">Vanilla JS</span></div>
-      </div>
-      <div class="stack-group">
-        <h3>Infra · Tooling</h3>
-        <div class="chips"><span class="chip">uv</span><span class="chip">Git · GitHub</span><span class="chip">GitHub Actions</span><span class="chip">Vercel</span><span class="chip">Oracle Cloud</span><span class="chip">Ollama</span><span class="chip">vLLM</span><span class="chip">Linux</span><span class="chip">Claude Code</span></div>
-      </div>
-      <div class="stack-group">
-        <h3>학습했지만 실무 경험은 없는 것</h3>
-        <div class="chips"><span class="chip ghost">Java</span><span class="chip ghost">TensorFlow</span><span class="chip ghost">PyTorch</span><span class="chip ghost">Alibaba Cloud</span></div>
-        <p class="stack-note">써본 것과 배운 것을 구분해 적었습니다.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 과정 -->
-  <section class="block" id="track">
-    <div class="sec-head">
-      <p class="sec-kicker">05 · 지금 하고 있는 것</p>
-      <h2>삼성 멀티캠퍼스 AI 에이전트 엔지니어 트랙 1회차</h2>
-      <p>2026.07 – 2027.01 · 984시간 · 금융 AI 서비스 개발을 실습 축으로 삼는 과정</p>
-    </div>
-    <div class="two">
-      <ol class="track">
-        <li class="mod done"><p class="m">단위기간 1</p><h4>LLM · AI Agent · n8n 워크플로</h4><p>프롬프트 엔지니어링과 노코드 자동화</p><p class="out"><span>n8n-voc-analysis-agent</span><span>n8n-finance-news-briefing</span><span>replygate</span></p></li>
-        <li class="mod done"><p class="m">단위기간 2</p><h4>Python · AI API 웹개발 · LangChain</h4><p>LCEL, Memory, LangSmith</p><p class="out"><span>personal-budget-ai-agent</span><span>rag-experiment-script</span></p></li>
-        <li class="mod done"><p class="m">단위기간 3</p><h4>Multi-Agent Orchestration</h4><p>LangGraph, MCP, A2A</p><p class="out"><span>multi-agent-tax-prep</span><span>langgraph-financial-agent</span></p></li>
-        <li class="mod"><p class="m">단위기간 4</p><h4>LLM · RAG 시스템 설계</h4><p>Chroma/FAISS, HyDE, Re-ranking, PyTorch · LoRA</p><p class="out"><span class="soon">예정</span></p></li>
-        <li class="mod"><p class="m">단위기간 5</p><h4>AI 프로덕션 개발</h4><p>FastAPI, Docker, AWS, CI/CD</p><p class="out"><span class="soon">예정</span></p></li>
-        <li class="mod"><p class="m">단위기간 6</p><h4>종합 프로젝트 — 금융 AI 서비스</h4><p>278시간</p><p class="out"><span class="soon">예정</span></p></li>
-      </ol>
-      <div>
-        <p class="track-intro">매 단위기간의 미니프로젝트가 금융 도메인 과제로 구성됩니다 — e-KYC 신분증 마스킹, PFM·로보어드바이저 대화형 에이전트, 금융 규제·약관 상담 RAG, 신용평가·이상탐지(FDS), 멀티에이전트 금융 서비스.</p>
-        <p class="track-intro">관심 도메인도 금융 AI입니다. 틀린 숫자 하나가 곧 사고가 되는 도메인이라, 지금까지 다듬어 온 "LLM이 할 일과 코드·사람이 할 일을 나누는" 원칙이 가장 필요한 곳이라고 생각합니다.</p>
-        <div class="side-note">과정과 별개로 Oracle Cloud 무료 서버에 직접 배포해보고, RTX 4060 노트북에 로컬 LLM(Ollama · vLLM) 환경을 구축하며 문제 해결 기록을 남기고 있습니다. 매일의 학습은 <a href="https://github.com/noviz-domino/TIL" target="_blank" rel="noopener noreferrer">TIL 저장소</a>에 적습니다.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 이력 -->
-  <section class="block" id="background">
-    <div class="sec-head">
-      <p class="sec-kicker">06 · 이력</p>
-      <h2>학력 · 자격 · 수상</h2>
-    </div>
-    <div class="bg-grid">
-      <div class="bg-card">
-        <h3>학력</h3>
-        <ul>
-          <li><span class="when">2017.03 – 2026.03</span><span class="what">우송대학교 컴퓨터정보보안학과<small>수료</small></span></li>
-          <li><span class="when">2019.03 – 2024.01</span><span class="what">베이징이공대학 공동학위과정<small>Beijing Institute of Technology · 중퇴</small></span></li>
-        </ul>
-      </div>
-      <div class="bg-card">
-        <h3>자격</h3>
-        <ul>
-          <li><span class="when">2026.03</span><span class="what">TOEIC 545</span></li>
-          <li><span class="when">준비 중</span><span class="what">정보처리기사 실기 · 정보보안기사 실기</span></li>
-          <li><span class="when">보유</span><span class="what">초경량비행장치 1급<small>드론</small></span></li>
-        </ul>
-      </div>
-      <div class="bg-card">
-        <h3>수상 · 병역</h3>
-        <ul>
-          <li><span class="when">군 복무 중</span><span class="what">C4I 체계 전산운용 1위<small>대한민국 육군 정보통신학교 준장 표창</small></span></li>
-          <li><span class="when">병역</span><span class="what">만기 전역</span></li>
-        </ul>
-      </div>
-    </div>
-    <div class="about-more">
-      <p>대학에서 <strong>컴퓨터정보보안</strong>을 전공했고, 베이징이공대학 공동학위과정에서 <strong>다국적 팀원들과 프로젝트를 수행</strong>했습니다. 쓰는 말과 배경이 다른 사람들과 하나의 결과물을 만들려면 코드보다 먼저 맥락을 맞춰야 한다는 것을 그때 배웠습니다.</p>
-      <p>보안을 공부한 경험은 지금도 습관으로 남아 있습니다. API 키와 고객 정보를 저장소에 남기지 않는 설계를 처음부터 고려하고, 공개 사본을 만들 때도 민감정보를 먼저 걸러냅니다.</p>
-    </div>
-  </section>
-
-  <section class="cta" id="contact" aria-label="연락처">
-    <div>
-      <h2>이야기 나눌 기회를 기다립니다.</h2>
-      <p>코드·시연·발표자료가 더 필요하시면 메일로 요청해 주세요.</p>
-    </div>
-    <div class="contact">
-      <a class="pill primary" href="mailto:noviz2025@gmail.com">noviz2025@gmail.com</a>
-      <a class="pill" href="https://github.com/noviz-domino" target="_blank" rel="noopener noreferrer">GitHub</a>
-      <a class="pill" href="https://www.linkedin.com/in/kim-min-seok-domino/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-    </div>
-  </section>
-
-  <footer>
-    <span>© 2026 김민석 · 마지막 갱신 2026-09-30</span>
-    <span><a href="https://github.com/noviz-domino/portfolio" target="_blank" rel="noopener noreferrer">코드 모음 저장소</a></span>
-  </footer>
-
+  </main>
 </div>
-</main>
+
+<button class="theme-btn" type="button" id="themeBtn" aria-label="라이트/다크 모드 전환" title="라이트/다크 모드 전환">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z"/></svg>
+</button>
 
 <script>
   (function () {
@@ -895,32 +507,21 @@
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('theme', next); } catch (e) {}
     });
-
-    var cards = Array.prototype.slice.call(document.querySelectorAll('#projectGrid .card'));
-    var buttons = Array.prototype.slice.call(document.querySelectorAll('.filter'));
-    document.querySelectorAll('[data-count]').forEach(function (el) {
-      var f = el.getAttribute('data-count');
-      el.textContent = cards.filter(function (c) { return f === 'all' || c.dataset.cat === f; }).length;
+    document.getElementById('printBtn').addEventListener('click', function () {
+      var prev = root.getAttribute('data-theme');
+      root.setAttribute('data-theme', 'light');
+      window.print();
+      if (prev) root.setAttribute('data-theme', prev); else root.removeAttribute('data-theme');
     });
-    buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var f = btn.dataset.f;
-        buttons.forEach(function (b) { b.setAttribute('aria-pressed', String(b === btn)); });
-        cards.forEach(function (c) { c.hidden = !(f === 'all' || c.dataset.cat === f); });
-      });
-    });
-
-    var links = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
-    if ('IntersectionObserver' in window) {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.toc a'));
+    if ('IntersectionObserver' in window && links.length) {
       var io = new IntersectionObserver(function (entries) {
         entries.forEach(function (e) {
           if (!e.isIntersecting) return;
           links.forEach(function (a) { a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id); });
         });
-      }, { rootMargin: '-40% 0px -55% 0px' });
-      ['principles', 'work', 'all', 'stack', 'track', 'background', 'contact'].forEach(function (id) {
-        var el = document.getElementById(id); if (el) io.observe(el);
-      });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+      document.querySelectorAll('main section').forEach(function (s) { io.observe(s); });
     }
   })();
 </script>
