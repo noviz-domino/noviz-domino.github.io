@@ -187,6 +187,8 @@
   .thumbs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; margin-top: 0.9rem; max-width: 30rem; }
   .thumbs img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; border-radius: 8px; border: 1px solid var(--line); background: var(--soft); }
   .thumbs.one { grid-template-columns: 1fr; max-width: 17rem; }
+  .thumbs.wide { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 36rem; }
+  .thumbs.wide img { aspect-ratio: 16 / 10; object-position: left top; }
   .thumbs.one img { aspect-ratio: auto; }
 
   .others { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
@@ -301,13 +303,14 @@
     <section id="demos">
       <h2><span>바로 확인할 수 있는 결과물</span>LIVE</h2>
       <ul class="demos">
+        <li><a href="https://noviz-bank.duckdns.org" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>금융 AI 에이전트</b><span class="d-what">말로 하는 은행 업무 · 승인 후 실행</span></a></li>
         <li><a href="https://play.google.com/store/apps/details?id=com.voca.englishwordapp" target="_blank" rel="noopener noreferrer"><span class="d-kind">Google Play</span><b>englishWordApp</b><span class="d-what">토익 단어 학습 Android 앱</span></a></li>
         <li><a href="https://mealmate-inky.vercel.app" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>mealmate</b><span class="d-what">AI 주간 식단 생성</span></a></li>
         <li><a href="https://go-eat-noviz.vercel.app" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>가봐야 알지</b><span class="d-what">test1@goeat.test / test1234</span></a></li>
         <li><a href="https://noviz-domino.github.io/data-value-sandbox/" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>data-value-sandbox</b><span class="d-what">데이터 가치 측정 시뮬레이션</span></a></li>
         <li><a href="https://noviz-domino.github.io/cosmic-grazer/" target="_blank" rel="noopener noreferrer"><span class="d-kind">바로 플레이</span><b>스쳐야 산다</b><span class="d-what">브라우저 탄막 게임</span></a></li>
       </ul>
-      <p class="note">mealmate · 가봐야 알지는 무료 서버라 첫 접속에 몇 초 걸릴 수 있습니다.</p>
+      <p class="note">모두 가상 데이터로 동작합니다. 무료 서버를 쓰는 데모는 첫 접속에 몇 초 걸릴 수 있습니다.</p>
     </section>
 
     <section id="about">
@@ -336,7 +339,7 @@
         <p class="when">2026.09</p>
         <div>
           <h3>langgraph-financial-agent <span class="kr">· 대화형 은행 업무 AI 에이전트</span></h3>
-          <div class="meta"><span class="badge">개인 프로젝트</span><span class="badge">KDT 과제</span><span class="badge ok">완성 · 웹 데모</span></div>
+          <div class="meta"><span class="badge">개인 프로젝트</span><span class="badge">KDT 과제</span><span class="badge ok">완성 · 배포 중</span></div>
           <p class="desc">"생활비에서 저축으로 10만 원 보내줘" 같은 말을 이해해 계좌 조회·이체·카드 잠금을 처리합니다. 돈이나 카드 상태가 바뀌는 일은 사용자 승인을 받은 뒤에만 실행합니다.</p>
           <ul class="points">
             <li><span class="label">설계</span>LLM은 말을 해석하는 노드 한 곳에서만 사용하고, 잔액 계산·검사·저장·답변 문장은 모두 코드로 처리해 숫자가 LLM을 거치지 않게 했습니다.</li>
@@ -344,9 +347,14 @@
             <li><span class="label">검증</span>실패 상황을 포함한 대화 시나리오 47개를 자동으로 돌려 전부 통과했고, 설계 변경 27건을 이유와 함께 기록했습니다.</li>
             <li><span class="label fail">문제 해결</span>프롬프트로 금지해도 LLM이 출금 계좌를 지어내는 것을 발견해, 규칙을 LLM 응답을 코드가 검증하는 방식으로 바꿨습니다.</li>
           </ul>
-          <div class="tags"><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Gemini</span><span class="tag">FastAPI</span><span class="tag">Python 3.13</span></div>
+          <div class="tags"><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Gemini</span><span class="tag">FastAPI</span><span class="tag">Python 3.13</span><span class="tag">Oracle Cloud</span></div>
+          <div class="thumbs wide">
+            <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/langgraph-financial-agent/docs/images/02-confirm.png" alt="이체 요청 후 승인 카드가 뜬 화면" loading="lazy">
+            <img src="https://raw.githubusercontent.com/noviz-domino/portfolio/main/projects/langgraph-financial-agent/docs/images/03-done.png" alt="승인 후 잔액이 바뀐 화면" loading="lazy">
+          </div>
           <div class="links">
-            <a href="https://github.com/noviz-domino/portfolio/tree/main/projects/langgraph-financial-agent" target="_blank" rel="noopener noreferrer">코드</a>
+            <a href="https://noviz-bank.duckdns.org" target="_blank" rel="noopener noreferrer">직접 써보기</a>
+            <a href="https://github.com/noviz-domino/langgraph-financial-agent" target="_blank" rel="noopener noreferrer">코드</a>
             <a href="https://github.com/noviz-domino/portfolio/blob/main/projects/langgraph-financial-agent/docs/%EC%84%A4%EA%B3%84%EB%B3%80%EA%B2%BD%EA%B8%B0%EB%A1%9D.md" target="_blank" rel="noopener noreferrer">설계 변경 기록</a>
           </div>
         </div>
