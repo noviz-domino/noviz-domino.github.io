@@ -304,7 +304,7 @@
       </button>
       <a class="btn" href="https://github.com/noviz-domino/portfolio" target="_blank" rel="noopener noreferrer">코드 모음</a>
     </div>
-    <p class="updated">최종 수정 2026. 09. 30</p>
+    <p class="updated">최종 수정 2026. 10. 29</p>
       <nav class="toc" aria-label="목차">
       <a href="#demos">라이브 데모</a>
       <a href="#about">소개</a>
@@ -329,6 +329,7 @@
         <li><a href="https://go-eat-noviz.vercel.app" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>가봐야 알지</b><span class="d-what">test1@goeat.test / test1234</span></a></li>
         <li><a href="https://noviz-domino.github.io/data-value-sandbox/" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>data-value-sandbox</b><span class="d-what">데이터 가치 측정 시뮬레이션</span></a></li>
         <li><a href="https://noviz-domino.github.io/cosmic-grazer/" target="_blank" rel="noopener noreferrer"><span class="d-kind">바로 플레이</span><b>스쳐야 산다</b><span class="d-what">브라우저 탄막 게임</span></a></li>
+        <li><a href="https://contest-radar-eta.vercel.app" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>contest-radar</b><span class="d-what">공모전 자동 수집 · AI 요약</span></a></li>
       </ul>
       <p class="note">모두 가상 데이터로 동작합니다. 무료 서버를 쓰는 데모는 첫 접속에 몇 초 걸릴 수 있습니다.</p>
     </section>
@@ -338,7 +339,7 @@
       <div class="about">
         <p>컴퓨터정보보안을 전공했고, 지금은 삼성 멀티캠퍼스 AI 에이전트 엔지니어 트랙에서 <strong>LLM · RAG · 멀티 에이전트</strong>를 배우며 금융 도메인 과제를 중심으로 프로젝트를 진행하고 있습니다.</p>
         <p>LLM은 그럴듯한 숫자를 지어낼 수 있습니다. 그래서 프로젝트마다 <strong>LLM이 맡을 일과 코드·사람이 맡을 일을 나누고</strong>, 그 경계가 지켜지는지 평가셋과 시나리오 테스트로 확인합니다. 실패한 시도와 설계를 바꾼 이유도 문서로 남깁니다.</p>
-        <p>AI 에이전트 외에도 Google Play에 출시한 Android 앱, 배포 중인 Next.js 웹 서비스 두 개를 혼자 만들어 운영해봤습니다. 필요한 영역이 있으면 직접 배워서 끝까지 완성하는 편입니다.</p>
+        <p>AI 에이전트 외에도 Google Play에 출시한 Android 앱, 배포 중인 Next.js 웹 서비스 세 개를 혼자 만들어 운영해봤습니다. 필요한 영역이 있으면 직접 배워서 끝까지 완성하는 편입니다.</p>
       </div>
     </section>
 
@@ -356,6 +357,28 @@
       <h2><span>프로젝트</span>PROJECTS · 최신순</h2>
 
       <article class="proj">
+        <p class="when">2026.10</p>
+        <div>
+          <h3>financial-rag-agent <span class="kr">· 금융 문서 근거 인용 RAG Agent</span></h3>
+          <div class="meta"><span class="badge">팀 프로젝트 (3인)</span><span class="badge">KDT 과제</span><span class="badge ok">제출 완료</span></div>
+          <p class="desc">금융 PDF 23개(용어집·표준약관·금융생활 가이드북·정책 자료)에서 근거를 찾아 파일명·쪽과 함께 답하고, 답할 수 없는 질문에는 되묻기·자료 없음·거절 중 알맞은 대응을 고릅니다. 같은 180문항으로 실행 → 채점 → 실패 원인 분석 → 수정을 반복하는 평가 루프도 함께 만들었습니다.</p>
+          <ul class="points">
+            <li><span class="label">협업 방식</span>기획서는 셋이 함께 썼고, 에이전트 구조는 회의와 페어 프로그래밍으로 정했습니다. 이후 각자 작업한 내용을 PR로 올려 합치는 방식이라, 세 명 모두 모든 과정에 참여했습니다.</li>
+            <li><span class="label">집중한 부분</span>그중 PDF 읽기·전처리, 에이전트 구조 설계, 최적 설정 찾기, 세 가지를 제가 더 깊게 맡았습니다.</li>
+            <li><span class="label">PDF 전처리</span>펼침면·2단 문서의 문장 섞임과 표·차트·그림·각주 깨짐을 글자 좌표 기반 규칙으로 바로잡았습니다. 표는 한글·숫자를 따로 세어 손실을 판정하고, 그림은 OCR로 먼저 읽은 뒤 종류에 맞게 글로 바꿨습니다. 표 191개 처리, 청크 1,508개에서 정답 근거 누락 0.</li>
+            <li><span class="label">에이전트 구조</span>LangGraph로 검색 → 근거 판단 → 재검색 → 답변 → 인용·숫자 검사 흐름과 끝나는 조건을 설계했습니다. 검색 전에 먼저 판단하던 단계를 없애고 검색 결과를 본 뒤 한 번에 판단하게 바꿔, 시험 40문항에서 과다 거절 0.32 → 0.12, 답변 점수 1.03 → 1.40으로 개선했습니다.</li>
+            <li><span class="label">최적값 찾기</span>청킹·검색 방식·검색 개수·임베딩을 한 번에 하나씩 바꾼 후보 15개를 180문항 전체로 채점해, 답변 점수를 1.456에서 1.517로 올린 설정을 찾았습니다.</li>
+            <li><span class="label fail">분석</span>만점을 못 받은 66문항 중 검색 실패는 6문항뿐이라, 남은 문제가 답변 단계에 있다는 것을 숫자로 확인하고 한계로 공개했습니다.</li>
+          </ul>
+          <div class="tags"><span class="tag">LangGraph</span><span class="tag">Gemini</span><span class="tag">Chroma</span><span class="tag">Kiwi BM25</span><span class="tag">pdfplumber</span><span class="tag">Python</span></div>
+          <div class="links">
+            <a href="https://github.com/noviz-domino/financial-rag-agent" target="_blank" rel="noopener noreferrer">원본 팀 저장소</a>
+            <a href="https://github.com/noviz-domino/financial-rag-agent/blob/main/docs/%EA%B5%AC%ED%98%84_%EB%AC%B8%EC%84%9C.md" target="_blank" rel="noopener noreferrer">구현 문서</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="proj">
         <p class="when">2026.09</p>
         <div>
           <h3>langgraph-financial-agent <span class="kr">· 대화형 은행 업무 AI 에이전트</span></h3>
@@ -364,7 +387,7 @@
           <ul class="points">
             <li><span class="label">설계</span>LLM은 말을 해석하는 노드 한 곳에서만 사용하고, 잔액 계산·검사·저장·답변 문장은 모두 코드로 처리해 숫자가 LLM을 거치지 않게 했습니다.</li>
             <li><span class="label">안전장치</span>LangGraph <code>interrupt</code>로 승인 전 실행을 멈추고, 저장은 무결성 규칙 10개를 통과해야만 한 번에 교체되도록(atomic write) 구현했습니다.</li>
-            <li><span class="label">검증</span>실패 상황을 포함한 대화 시나리오 47개를 자동으로 돌려 전부 통과했고, 설계 변경 27건을 이유와 함께 기록했습니다.</li>
+            <li><span class="label">검증</span>실패 상황을 포함한 대화 시나리오 47개를 자동으로 돌려 전부 통과했고, 설계 변경 29건을 이유와 함께 기록했습니다.</li>
             <li><span class="label fail">문제 해결</span>프롬프트로 금지해도 LLM이 출금 계좌를 지어내는 것을 발견해, 규칙을 LLM 응답을 코드가 검증하는 방식으로 바꿨습니다.</li>
           </ul>
           <div class="tags"><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Gemini</span><span class="tag">FastAPI</span><span class="tag">Python 3.13</span><span class="tag">Oracle Cloud</span></div>
@@ -474,6 +497,9 @@
       <table class="others">
         <thead><tr><th>기간</th><th>프로젝트</th><th class="stack">기술</th><th>링크</th></tr></thead>
         <tbody>
+          <tr><td>2026.10 –</td><td><b>contest-radar</b>AI·IT 공모전을 매일 자동으로 모아 AI가 요약해 주는 사이트 · 필요해서 직접 만들어 운영 중<span class="s">중복 판정은 규칙 → BM25 후보 → LLM 순서</span></td><td class="stack">Next.js · Gemini · GitHub Actions</td><td><a href="https://contest-radar-eta.vercel.app" target="_blank" rel="noopener noreferrer">데모</a></td></tr>
+          <tr><td>2026.10 –</td><td><b>KIC AI 에이전트 공모전</b>팀 참가 · 진행 중<span class="s">대회가 끝난 뒤 공개</span></td><td class="stack">-</td><td>-</td></tr>
+          <tr><td>2026.10</td><td><b>길잡이 24</b>고용24 국민참여 AI 해커톤 기획안 참가 (개인)<span class="s">훈련·생계 지원·구직활동을 재취업까지 하나의 경로로 설계하는 AI 재취업 내비게이션 기획</span></td><td class="stack">기획 · 공공데이터 설계</td><td>-</td></tr>
           <tr><td>2026.09</td><td><b>multi-agent-tax-prep</b>종합소득세 신고 준비 멀티 에이전트 (리서치·계획·검토)<span class="s">LLM 없이 도는 테스트 57개</span></td><td class="stack">LangGraph · Gemini</td><td><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/multi-agent-tax-prep" target="_blank" rel="noopener noreferrer">코드</a></td></tr>
           <tr><td>2026.09</td><td><b>rag-experiment-script</b>설정 20개로 청킹·검색·리랭킹을 비교한 RAG 실험<span class="s">하이브리드 검색 Page Hit@1 0.943 (기준 0.886)</span></td><td class="stack">LangChain · Chroma · BM25</td><td><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/rag-experiment-script" target="_blank" rel="noopener noreferrer">코드</a></td></tr>
           <tr><td>2026.08 – 09</td><td><b>personal-budget-ai-agent</b>자연어로 쓰는 가계부 에이전트 (도구 7개)</td><td class="stack">Gemini Function Calling</td><td><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/personal-budget-ai-agent" target="_blank" rel="noopener noreferrer">코드</a></td></tr>
@@ -483,7 +509,7 @@
           <tr><td>2026.07 – 08</td><td><b>스쳐야 산다 (cosmic-grazer)</b>단일 HTML 파일 탄막 서바이버 게임</td><td class="stack">Vanilla JS · Canvas2D</td><td><a href="https://noviz-domino.github.io/cosmic-grazer/" target="_blank" rel="noopener noreferrer">플레이</a></td></tr>
           <tr><td>2026.07</td><td><b>대통령: 외교의 신</b>Gemini 기반 정치·외교 텍스트 RPG</td><td class="stack">FastAPI · Gemini</td><td><a href="https://github.com/noviz-domino/portfolio/tree/main/projects/god-of-diplomacy" target="_blank" rel="noopener noreferrer">코드</a></td></tr>
           <tr><td>2026.04 – 09</td><td><b>data-value-sandbox</b>합성 세계로 "어떤 데이터가 사건을 예측 가능하게 하는가" 측정<span class="s">표적 추론 top-1 51.5% (기준선의 3.81배)</span></td><td class="stack">deck.gl · Jupyter</td><td><a href="https://noviz-domino.github.io/data-value-sandbox/" target="_blank" rel="noopener noreferrer">데모</a></td></tr>
-          <tr><td>2021.12</td><td><b>GTD 테러예측모델</b>글로벌 테러 데이터 분석·예측 (2인 팀)</td><td class="stack">Python · Scikit-learn</td><td><a href="https://github.com/noviz-domino/gtd-terror-analysis-project" target="_blank" rel="noopener noreferrer">저장소</a></td></tr>
+          <tr><td>2021.12</td><td><b>GTD 테러예측모델</b>글로벌 테러 데이터 분석·예측 (2인 팀)</td><td class="stack">Python · Scikit-learn</td><td>-</td></tr>
         </tbody>
       </table>
     </section>
@@ -514,7 +540,8 @@
               <span>단위기간 1</span>LLM · 프롬프트 · n8n — replygate 외 2건<br>
               <span>단위기간 2</span>Python AI 웹개발 · LangChain — 가계부 에이전트 · RAG 실험<br>
               <span>단위기간 3</span>LangGraph · MCP · 멀티 에이전트 — 금융 에이전트 · 세금 신고 에이전트<br>
-              <span>단위기간 4–6</span><i>RAG 시스템 설계 · 프로덕션(Docker·AWS·CI/CD) · 종합 프로젝트 예정</i>
+              <span>단위기간 4</span>RAG 시스템 설계 — 금융 문서 RAG Agent (3인 팀)<br>
+              <span>단위기간 5–6</span><i>프로덕션(Docker·AWS·CI/CD) · 종합 프로젝트 예정</i>
             </p>
           </div>
         </li>
