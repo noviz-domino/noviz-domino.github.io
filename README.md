@@ -1,6 +1,6 @@
 # noviz-domino.github.io
 
-**개인 포트폴리오 웹사이트 소스**
+**개인 포트폴리오 웹사이트 주소입니다. 클릭하셔요.**
 
 [![사이트 열기](https://img.shields.io/badge/noviz--domino.github.io-26d0ce?style=for-the-badge&logo=googlechrome&logoColor=white)](https://noviz-domino.github.io/)
 
@@ -8,9 +8,15 @@
 
 ## 무엇인가
 
-김민석(Kim Minseok)의 포트폴리오 사이트다. 소개, 기술 스택, 프로젝트, 학력·자격을 한 페이지에 담았다.
+김민석(Kim Minseok) 제 포트폴리오 사이트입니다.. 소개, 기술 스택, 프로젝트, 학력·자격까지 한번에 보실수있습니다.
 
-**프로젝트 소스 코드는 여기 없다.** 코드와 설계 문서는 별도 저장소에 모아두었다.
+
+
+
+
+
+
+
 
 | 용도 | 저장소 |
 |---|---|
