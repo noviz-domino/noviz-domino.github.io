@@ -140,7 +140,7 @@
   h2 { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 1.1rem; }
   h2 span { color: var(--text); letter-spacing: -0.01em; font-size: 1.15rem; margin-right: 0.5rem; }
 
-  .demos { display: grid; gap: 0.5rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13.5rem), 1fr)); }
+  .demos { display: grid; gap: 0.5rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   @media (max-width: 40rem) { .demos { grid-template-columns: repeat(2, minmax(0, 1fr)); } .demos a { padding: 0.7rem 0.75rem; } .demos .d-what { font-size: 0.76rem; } }
   .demos a {
     display: grid; align-content: start; gap: 0.05rem; height: 100%; padding: 0.8rem 0.95rem; border-radius: 10px; text-decoration: none;
@@ -155,13 +155,16 @@
   .about p { color: var(--text-2); max-width: 44rem; }
   .about p + p { margin-top: 0.75rem; }
 
-  .hl { display: grid; gap: 0.6rem; }
-  @media (min-width: 40rem) { .hl { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-  .hl li { padding: 1rem 1.1rem; border-radius: 10px; background: var(--panel); border: 1px solid var(--line); }
-  .hl .num { font-size: 1.35rem; font-weight: 750; letter-spacing: -0.03em; line-height: 1.25; font-variant-numeric: tabular-nums; }
-  .hl .num small { font-size: 0.7em; color: var(--muted); font-weight: 600; }
-  .hl p { margin-top: 0.2rem; font-size: 0.88rem; color: var(--text-2); line-height: 1.55; }
-  .hl .src { margin-top: 0.35rem; font-size: 0.76rem; color: var(--muted); }
+  .lead { color: var(--text-2); font-size: 0.92rem; margin-bottom: 1rem; max-width: 44rem; }
+  .cases { display: grid; gap: 0.6rem; list-style: none; counter-reset: c; }
+  .cases li { counter-increment: c; padding: 1rem 1.1rem; border-radius: 10px; background: var(--panel); border: 1px solid var(--line); }
+  .cases .c-proj { font-size: 0.76rem; color: var(--accent); font-weight: 600; }
+  .cases .c-proj code { background: none; padding: 0; }
+  .cases h3 { margin-top: 0.15rem; font-size: 1rem; font-weight: 700; letter-spacing: -0.015em; line-height: 1.45; }
+  .cases h3::before { content: counter(c) ". "; color: var(--muted); }
+  .cases dl { margin-top: 0.55rem; display: grid; grid-template-columns: 2.6rem 1fr; gap: 0.3rem 0.6rem; font-size: 0.88rem; line-height: 1.6; }
+  .cases dt { font-weight: 700; color: var(--muted); font-size: 0.8rem; padding-top: 0.08rem; }
+  .cases dd { color: var(--text-2); }
 
   .proj { display: grid; gap: 0.25rem 1.5rem; padding: 1.5rem 0; border-top: 1px dashed var(--line); }
   .proj:first-of-type { border-top: 0; padding-top: 0.25rem; }
@@ -269,7 +272,7 @@
     .toc, .actions, .theme-btn, .thumbs, .contact-box, .lb { display: none !important; }
     main { padding: 0; }
     section { padding: 0.9rem 0; }
-    .proj, .tl li, .hl li, .others tr { break-inside: avoid; }
+    .proj, .tl li, .cases li, .others tr { break-inside: avoid; }
     .links a::after { content: ""; }
   }
 </style>
@@ -304,11 +307,11 @@
       </button>
       <a class="btn" href="https://github.com/noviz-domino/portfolio" target="_blank" rel="noopener noreferrer">코드 모음</a>
     </div>
-    <p class="updated">최종 수정 2026. 10. 29</p>
+    <p class="updated">최종 수정 2026. 11. 4</p>
       <nav class="toc" aria-label="목차">
       <a href="#demos">라이브 데모</a>
       <a href="#about">소개</a>
-      <a href="#highlights">핵심 성과</a>
+      <a href="#cases">문제 해결 사례</a>
       <a href="#projects">프로젝트</a>
       <a href="#others">그 외 프로젝트</a>
       <a href="#skills">기술</a>
@@ -324,12 +327,12 @@
       <h2><span>바로 확인할 수 있는 결과물</span>LIVE</h2>
       <ul class="demos">
         <li><a href="https://noviz-bank.duckdns.org" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>금융 AI 에이전트</b><span class="d-what">말로 하는 은행 업무 · 승인 후 실행</span></a></li>
-        <li><a href="https://play.google.com/store/apps/details?id=com.voca.englishwordapp" target="_blank" rel="noopener noreferrer"><span class="d-kind">Google Play</span><b>englishWordApp</b><span class="d-what">토익 단어 학습 Android 앱</span></a></li>
-        <li><a href="https://mealmate-inky.vercel.app" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>mealmate</b><span class="d-what">AI 주간 식단 생성</span></a></li>
+        <li><a href="https://contest-radar-eta.vercel.app" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>contest-radar</b><span class="d-what">AI·IT 공모전 매일 자동 수집 · AI 요약</span></a></li>
+        <li><a href="https://mealmate-inky.vercel.app" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>mealmate</b><span class="d-what">냉장고 재료로 짜는 AI 주간 식단</span></a></li>
         <li><a href="https://go-eat-noviz.vercel.app" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>가봐야 알지</b><span class="d-what">test1@goeat.test / test1234</span></a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.voca.englishwordapp" target="_blank" rel="noopener noreferrer"><span class="d-kind">Google Play</span><b>englishWordApp</b><span class="d-what">토익 단어 학습 Android 앱</span></a></li>
         <li><a href="https://noviz-domino.github.io/data-value-sandbox/" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>data-value-sandbox</b><span class="d-what">데이터 가치 측정 시뮬레이션</span></a></li>
         <li><a href="https://noviz-domino.github.io/cosmic-grazer/" target="_blank" rel="noopener noreferrer"><span class="d-kind">바로 플레이</span><b>스쳐야 산다</b><span class="d-what">브라우저 탄막 게임</span></a></li>
-        <li><a href="https://contest-radar-eta.vercel.app" target="_blank" rel="noopener noreferrer"><span class="d-kind">웹 데모</span><b>contest-radar</b><span class="d-what">공모전 자동 수집 · AI 요약</span></a></li>
       </ul>
       <p class="note">모두 가상 데이터로 동작합니다. 무료 서버를 쓰는 데모는 첫 접속에 몇 초 걸릴 수 있습니다.</p>
     </section>
@@ -343,14 +346,17 @@
       </div>
     </section>
 
-    <section id="highlights">
-      <h2><span>핵심 성과</span>HIGHLIGHTS</h2>
-      <ul class="hl">
-        <li><p class="num">34% → 94%</p><p>RAG 도입 후 AI 답변 초안의 1차 승인률. 답변 속 수치 정확률은 43.8% → 96.0%</p><p class="src">replygate · 평가셋 50건 실측</p></li>
-        <li><p class="num">47 / 47<small> 통과</small></p><p>잔액 부족·저장 실패·AI 서버 장애 등 실패 상황을 포함한 대화 시나리오에서 장부 무결성 유지</p><p class="src">langgraph-financial-agent</p></li>
-        <li><p class="num">0.886 → 0.943</p><p>청크 크기·검색 방식·리랭킹 설정 20개를 직접 비교해 찾은 하이브리드 검색의 검색 정확도(Page Hit@1)</p><p class="src">rag-experiment-script · 질문 35개 실측</p></li>
-        <li><p class="num">Google Play 출시</p><p>Kotlin·Compose로 전면 재작성한 토익 단어 앱. 퀴즈 로직을 JUnit 25건으로 고정</p><p class="src">englishWordApp</p></li>
-      </ul>
+    <section id="cases">
+      <h2><span>문제 해결 사례</span>PROBLEM SOLVING</h2>
+      <p class="lead">프로젝트마다 부딪힌 문제를 어떻게 찾았고, 원인이 무엇이었고, 어떻게 풀었는지 정리했습니다. 숫자는 고친 뒤에 다시 재서 확인한 결과입니다.</p>
+      <ol class="cases">
+        <li><p class="c-proj"><code>langgraph-financial-agent</code></p><h3>프롬프트로 막아도 LLM이 출금 계좌를 지어냈다</h3><dl><dt>문제</dt><dd>"저축으로 10만 원 옮겨줘"라고만 했는데 LLM이 출금 계좌를 '생활비'로 채웠습니다. 프롬프트에 "출금 계좌 없음"이라고 적어 줘도 한 번은 되묻고 한 번은 지어냈습니다.</dd><dt>원인</dt><dd>프롬프트 규칙은 확률이라 같은 입력에도 결과가 흔들립니다. 게다가 코드는 "뜻으로 알아들은 이름"과 "지어낸 이름"을 구분할 수 없었습니다.</dd><dt>해결</dt><dd>피해가 큰 출금 계좌만 코드가 검증하게 바꿨습니다. 사용자가 말했거나, 앞에서 이어받았거나, 보여 준 후보에서 고른 이름이 아니면 비우고 되묻습니다. 입금 계좌·조회처럼 피해가 작은 곳은 유연하게 두었습니다.</dd><dt>확인</dt><dd>잔액 부족·저장 실패·AI 서버 장애를 포함한 대화 시나리오 47개를 모두 통과했습니다.</dd></dl></li>
+        <li><p class="c-proj"><code>replygate</code></p><h3>AI 답변 초안 속 숫자가 회사 정책과 달랐다</h3><dl><dt>문제</dt><dd>정책 없이 쓴 초안은 환불 기한 14일을 7일로 줄여 안내하거나, "적립금 5,000원을 지급해 드렸습니다"처럼 금액을 지어내 단정했습니다. 실제 정책은 주문 금액의 5% 적립이었습니다.</dd><dt>원인</dt><dd>모델이 이 회사 정책을 모른 채 일반 상식으로 답했습니다. 맞힌 경우도 상식과 정책이 우연히 겹칠 때뿐이었습니다.</dd><dt>해결</dt><dd>정책 문서를 조항 단위로 검색해 근거로 넣고(RAG), 근거에 없는 숫자는 쓰지 못하게 했습니다. 그래도 틀릴 수 있어서 담당자가 텔레그램에서 승인해야만 메일이 나가게 했습니다.</dd><dt>확인</dt><dd>평가셋 50건에서 1차 승인률 34% → 94%, 수치 정확률 43.8% → 96.0%. RAG도 함정 문항 1건에서 본문을 지어낸 한계를 함께 기록했습니다.</dd></dl></li>
+        <li><p class="c-proj"><code>replygate</code></p><h3>감정 분류 정확도가 올랐는데 '가짜 개선'이었다</h3><dl><dt>문제</dt><dd>문의 감정을 불만/중립/단순문의 3단계로 나눴더니 '중립'을 한 번도 맞히지 못했습니다(0/20). 정의를 고치자 전체 정확도는 56% → 84%로 올랐지만, 클래스별로 쪼개 보니 중립은 여전히 0/7이었습니다.</dd><dt>원인</dt><dd>라벨만 옮긴 개선이었습니다. 실제로는 '감정'과 '주문 조회가 필요한가'라는 서로 다른 두 기준을 한 줄에 섞은 설계 오류였습니다.</dd><dt>해결</dt><dd>두 기준을 따로 판정하도록 감정(불만/일반)과 조회 필요(예/아니오) 두 축으로 나눴습니다.</dd><dt>확인</dt><dd>감정 98%, 조회 필요 92%. 잘못된 중간 측정도 지우지 않고 기록으로 남겼습니다.</dd></dl></li>
+        <li><p class="c-proj"><code>financial-rag-agent</code> (팀)</p><h3>PDF를 그대로 읽으니 문장과 표가 뒤섞였다</h3><dl><dt>문제</dt><dd>기본 텍스트 추출로 금융 PDF 23개를 읽으니 펼침면·2단 문서의 좌우 문장이 섞이고, 표·차트·그림·각주가 깨졌습니다. 검색이 맞아도 근거 자체가 망가져 있었습니다.</dd><dt>원인</dt><dd>기본 추출은 쪽 전체를 위에서 아래로만 읽어서, 사람이 읽는 순서와 표 구조를 알지 못합니다.</dd><dt>해결</dt><dd>글자 좌표를 보고 펼침면·2단을 나눠 읽는 규칙을 만들었습니다. 표는 한글·숫자를 따로 세어 90% 미만이면 손실로 보고 칸 채우기 → Gemini 재판독 순서로 복구했고, 그림은 OCR로 먼저 읽은 뒤 종류에 맞게 글로 바꿨습니다.</dd><dt>확인</dt><dd>표 191개를 처리하고, 청크 1,508개에서 정답 근거 누락 0을 확인했습니다.</dd></dl></li>
+        <li><p class="c-proj"><code>financial-rag-agent</code> (팀)</p><h3>Agent가 답할 수 있는 질문까지 거절했다</h3><dl><dt>문제</dt><dd>더 똑똑해야 할 Agent가 기본 RAG보다 점수가 낮았습니다. 들여다보니 답할 수 있는 질문을 거절하는 비율이 0.32였습니다(기본 RAG 0.03).</dd><dt>원인</dt><dd>검색하기 전에 "답할 수 있는 질문인가"를 먼저 판단하는 단계가 있어서, 근거를 보기도 전에 거절하고 있었습니다.</dd><dt>해결</dt><dd>그 단계를 없애고, 검색 결과를 본 뒤 한 번에 판단하도록 구조를 바꿨습니다.</dd><dt>확인</dt><dd>시험 40문항에서 과다 거절 0.32 → 0.12, 답변 점수 1.03 → 1.40.</dd></dl></li>
+        <li><p class="c-proj"><code>legal_secretary</code></p><h3>"로컬 LLM이라 안전하다"던 설계가 질문을 밖으로 보내고 있었다</h3><dl><dt>문제</dt><dd>2024년 캡스톤은 민감한 법률 질문을 다루니 로컬 LLM을 쓴다고 설계했습니다. 그런데 다시 살펴보니 사용자 질문이 ngrok 공개 터널을 거쳐 Colab으로 나가고 있었습니다.</dd><dt>원인</dt><dd>컴퓨팅 자원이 부족해 Colab GPU를 빌려 쓰면서, 설계 문서와 실제 데이터 흐름이 어긋났습니다.</dd><dt>해결</dt><dd>데이터가 밖으로 나가지 않는 self-hosted 경로를 실제로 구현하는 것을 목표로 구조 전체를 다시 만들고 있습니다(재구축 3 / 6단계).</dd></dl></li>
+      </ol>
     </section>
 
     <section id="projects">
