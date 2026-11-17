@@ -2,7 +2,7 @@
 
 [사이트](https://noviz-domino.github.io/) · [프로젝트 기록](https://github.com/noviz-domino/portfolio)
 
-아이보리 배경과 녹색 포인트, 소개 카드와 프로젝트 카드로 구성한 정적 포트폴리오입니다. 첫 화면의 소개 → 대표 사례 → 최근 작업 → 기술·학습 → 연락 순서로 읽습니다.
+아이보리 배경과 녹색 포인트, 소개 카드와 프로젝트 카드로 구성한 정적 포트폴리오입니다. 소개 바로 아래에 캡아메리카뱅크 → Kick the Tires → 금융 문서 RAG를 배치해 구현·업무 설계·평가 역량을 먼저 보여 줍니다. ReplyGate는 보조 사례로 옮겼습니다.
 
 ## 파일과 실행
 
@@ -11,6 +11,7 @@
 - `profile.png`: 기존 토스 지원 이력서에 사용한 사진.
 - `profile.jpg`: 이전 사진 보관본.
 - `og-image.png`: 링크 공유 이미지.
+- `assets/projects/`: 실제 구현 화면 2개와 금융 RAG 설계 흐름도. [이미지 출처](assets/projects/README.md).
 
 Git Bash에서 `python -m http.server 8766 --bind 127.0.0.1` 실행 후 `http://127.0.0.1:8766`을 엽니다. 빌드나 패키지 설치는 필요 없습니다. GitHub Pages 기존 배포 방식을 유지합니다.
 
