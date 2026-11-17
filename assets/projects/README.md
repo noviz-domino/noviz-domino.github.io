@@ -6,6 +6,10 @@
 |---|---|---|
 | `capamerica-home.png` | avengers-bank-noviz `docs/design-drafts/implemented/v4-2026-11-11-layout-tabs/02-home-top.png` | 실제 구현된 모바일 홈. 데모 사용자·가상 계좌와 잔액 |
 | `kick-the-tires-workflow.png` | kick-the-tires `artifacts/graph-review/01-full-graph.png` | 2026-11-15 저장된 업무 실행 그래프 캡처. 대회 가상 기업 사례·모의 업무 |
+| `kick-the-tires-home.jpg` | https://ktt-w66x.axhub.app/ · 2026-11-17 직접 캡처 | 가상 기업 Celtonic 실사 개요. 실제 배포 화면 |
+| `financial-rag-guide.jpg` | financial-rag-agent `code/noviz-domino/docs/파이프라인_안내서.html` · 2026-11-17 캡처 | 기존 HTML 전처리 안내 문서. UTF-8 선언만 추가한 임시 복사본을 정적으로 열었으며 백엔드·모델은 실행하지 않음 |
 | `financial-rag-flow.svg` | financial-rag-agent `docs/agent_flowchart.svg` | 팀 프로젝트의 LangGraph Agent 설계 흐름도. 서비스 화면 캡처가 아님 |
 
 금융 RAG의 팀 프로젝트 성격과 본인 기여 범위는 카드 본문에 표시합니다. 이미지는 상세 문구를 읽을 수 있도록 클릭 시 원본을 새 탭으로 엽니다.
+
+은행 화면은 원본 이미지의 319×632 앱 영역을 CSS 프레임으로 표시하며 오른쪽·아래의 캡처 여백을 제외합니다. KTT와 금융 RAG는 화면·문서와 흐름도 두 장을 좌우 화살표 및 하단 점으로 순환합니다. 키보드 좌우 화살표와 점 버튼 선택도 지원하며 자동 재생하지 않습니다.
