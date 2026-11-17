@@ -24,7 +24,9 @@
 .project-gallery{position:relative;aspect-ratio:4/3;width:100%;margin:auto 0;border-radius:12px;background:#17201f;overflow:hidden;isolation:isolate}
 .project-gallery .gallery-slide{position:absolute;inset:0;min-height:0;padding:0 0 42px;display:flex;align-items:center}
 .project-gallery .gallery-slide[hidden],.gallery-controls[hidden]{display:none}
-.project-gallery .image-link img{width:100%;height:100%;max-height:none;object-fit:contain;border-radius:0;box-shadow:none;transform:none}
+.project-gallery .image-link>img{width:100%;height:100%;max-height:none;object-fit:contain;border:0;border-radius:0;box-shadow:none;transform:none}
+.visual-capamerica .project-gallery{aspect-ratio:1;container-type:inline-size;background:#d3ded1}
+.visual-capamerica .project-gallery .phone-frame{width:min(190px, calc((100cqw - 64px) * .49))}
 .gallery-arrow{position:absolute;z-index:2;top:calc(50% - 21px);transform:translateY(-50%);display:grid;place-items:center;width:40px;height:48px;padding:7px;border:1px solid #ffffff38;border-radius:12px;background:#18221f88;color:#fff;cursor:pointer;backdrop-filter:blur(8px);transition:background .15s}
 .gallery-arrow.previous{left:8px}.gallery-arrow.next{right:8px}.gallery-arrow:hover{background:#18221fcc}.gallery-arrow svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .gallery-dots{position:absolute;bottom:0;left:50%;transform:translateX(-50%);display:flex;height:42px;align-items:center;padding:0 5px;border-radius:25px;background:#18221f66}
