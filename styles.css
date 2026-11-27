@@ -17,10 +17,10 @@
 @media(prefers-reduced-motion:reduce){.image-link img{transition:none}.image-link:hover img{transform:none}}
 @media print{.project-visual{padding:15px}.visual-capamerica .image-link img{height:250px}.project-visual img{box-shadow:none}.featured-project{break-inside:avoid}.principles{margin-top:25px}}
 
-/* Match the capture's 319 × 632 app area; exclude the original viewport gutters. */
+/* v5 capture is the 384 × 760 viewport itself (same ratio as 319 × 632), so it fills the frame without cropping. */
 .phone-frame{display:block;width:210px;max-width:100%;padding:6px;border-radius:25px;background:#fff;box-shadow:0 16px 32px #152a1c25}
 .phone-screen{display:block;position:relative;aspect-ratio:319/632;overflow:hidden;border-radius:19px;background:#fff}
-.visual-capamerica .phone-screen img{position:absolute;top:0;left:0;width:calc(100% * 348 / 319);max-width:none;height:auto;max-height:none;border:0;border-radius:0;box-shadow:none;transform:none}
+.visual-capamerica .phone-screen img{position:absolute;top:0;left:0;width:100%;max-width:none;height:auto;max-height:none;border:0;border-radius:0;box-shadow:none;transform:none}
 .project-gallery{position:relative;aspect-ratio:4/3;width:100%;margin:auto 0;border-radius:12px;background:#17201f;overflow:hidden;isolation:isolate}
 .project-gallery .gallery-slide{position:absolute;inset:0;min-height:0;padding:0 0 42px;display:flex;align-items:center}
 .project-gallery .gallery-slide[hidden],.gallery-controls[hidden]{display:none}
